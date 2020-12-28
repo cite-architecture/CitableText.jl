@@ -64,6 +64,20 @@ function isrange(u::CtsUrn)::Bool
     isrange(passagecomponent(u))
 end
 
+#=
+function rangebegin(s::AbstractString)::String
+    try
+        if isrange(s)
+            rangeparts = split(s,"-")
+            range[1]
+        else
+            throw(ArgumentError("Passage expression $(s) is not a range."))
+        end
+    catch e
+        throw(e)
+    end
+end
+=#
 
 function subref(s::String)::String
     segments = split(s,"@")

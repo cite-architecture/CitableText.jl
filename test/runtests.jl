@@ -51,6 +51,18 @@ end
         @test passagecomponent(urn) == "1.1"
 end
 
+@testset "Extract range components" begin
+        #@test rangebegin("urn:cts:greekLit:tlg0012.tlg001.msA:1.1-1.10") == "1.1"
+end
+
+@testset "Extract passage subreferences" begin
+        @test CitableText.subref("1.1@μῆνιν") == "μῆνιν"
+
+        @test CitableText.subref("1.1") == ""
+
+        @test_throws ArgumentError("Invalid subreference syntax `1.1@μῆνιν @ἄειδε`.  Too many `@` characters.") CitableText.subref("1.1@μῆνιν @ἄειδε") == "μῆνιν"
+end
+
 @testset "Validate passage range syntax" begin
         # isrange has methods for Strings and for CtsUrns.
         # String method:
@@ -70,13 +82,7 @@ end
         @test_throws ArgumentError("Invalid passage component `1-2-3`.  Too many hyphen-delimited parts.") CtsUrn("urn:cts:ns:group.work:1-2-3")
 end
 
-@testset "Work with passage subreferences" begin
-        @test CitableText.subref("1.1@μῆνιν") == "μῆνιν"
 
-        @test CitableText.subref("1.1") == ""
-
-        @test_throws ArgumentError("Invalid subreference syntax `1.1@μῆνιν @ἄειδε`.  Too many `@` characters.") CitableText.subref("1.1@μῆνιν @ἄειδε") == "μῆνιν"
-end
 
 #end # End of testset for CtsUrns
 
