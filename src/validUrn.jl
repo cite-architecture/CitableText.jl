@@ -1,4 +1,4 @@
-
+"True if s fully compiles with CtsUrn syntax."
 function validUrn(s::String)::Bool
     toplevel = components(s)
 
@@ -20,6 +20,7 @@ function validUrn(s::String)::Bool
         else
             psg = toplevel[5]
             try
+                # isrange throws errors if it finds invalid range syntax
                 range = isrange(psg)
             catch e
                 throw(e)

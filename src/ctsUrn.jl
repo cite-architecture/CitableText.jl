@@ -30,8 +30,8 @@ function isrange(psg::AbstractString)::Bool
     elseif psg[1] == "-"
         throw(ArgumentError("Invalid passage component `$(psg)`.  Range parts may not be empty."))
     end
-    rangeparts = split(psg,"-")
 
+    rangeparts = split(psg,"-")
     partcount = size(rangeparts,1)
     if (partcount > 2)
         throw(ArgumentError("Invalid passage component `$(psg)`.  Too many hyphen-delimited parts."))
@@ -43,6 +43,7 @@ function isrange(psg::AbstractString)::Bool
         end
 
     else
+        # Not a range if 0 or 1 part
         false
     end
 
@@ -63,6 +64,19 @@ function isrange(u::CtsUrn)::Bool
     isrange(passagecomponent(u))
 end
 
+
+function subref(s::String)::String
+    segments = split(s,"@")
+    count = size(segments,1)
+    if count == 2
+        sub::String = segments[2]
+        sub
+    elseif count > 2
+        throw(ArgumentError("Invalid subreference syntax `$(s)`.  Too many `@` characters."))
+    else
+        ""
+    end
+end
 
 """
 $(SIGNATURES)

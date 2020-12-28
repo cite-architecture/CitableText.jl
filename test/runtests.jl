@@ -71,6 +71,11 @@ end
 end
 
 @testset "Work with passage subreferences" begin
+        @test CitableText.subref("1.1@μῆνιν") == "μῆνιν"
+
+        @test CitableText.subref("1.1") == ""
+
+        @test_throws ArgumentError("Invalid subreference syntax `1.1@μῆνιν @ἄειδε`.  Too many `@` characters.") CitableText.subref("1.1@μῆνιν @ἄειδε") == "μῆνιν"
 end
 
 #end # End of testset for CtsUrns
