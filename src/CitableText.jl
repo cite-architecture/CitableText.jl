@@ -2,7 +2,7 @@ module CitableText
 
 using CitableBase, Documenter, DocStringExtensions
 
-export CtsUrn, workcomponent, passagecomponent, namespace
+export CtsUrn, workcomponent, passagecomponent, namespace, isrange
 
 "Implementation of the CTS URN. See  [http://cite-architecture.org/ctsurn/](http://cite-architecture.org/ctsurn/)."
 struct CtsUrn
@@ -30,6 +30,45 @@ end
 
 """
 $(SIGNATURES)
+True if passage component string is a range..
+
+# Examples
+```julia-repl
+julia>
+isrange("1.1-1.10"))
+```
+"""
+function isrange(psg::String)::Bool
+    rangeparts = split(psg,"-")
+    partcount = size(rangeparts,1)
+    if (partcount > 2)
+        throw(ArgumentError("Invalid passage component $(psg).  Too many hyphen-delimited parts."))
+    elseif partcount == 2
+        true
+    else
+        false
+    end
+
+end
+
+
+"""
+$(SIGNATURES)
+True if passage component is a range..
+
+# Examples
+```julia-repl
+julia>
+isrange(CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1.1-1.10"))
+```
+"""
+function isrange(urn::CtsUrn)::Bool
+    isrange(passagecomponent(urn))
+end
+
+
+"""
+$(SIGNATURES)
 Extract work component from a CtsUrn.
 
 # Examples
@@ -38,9 +77,10 @@ julia>
 workcomponent(CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1.1"))
 ```
 """
-function workcomponent(u::CtsUrn)
+function workcomponent(u::CtsUrn)::String
     allcomponents = components(u.urn)
-    allcomponents[4]
+    work::String = allcomponents[4]
+    work
 end
 
 
@@ -55,9 +95,10 @@ julia>
 passagecomponent(CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1.1"))
 ```
 """
-function passagecomponent(u::CtsUrn)
+function passagecomponent(u::CtsUrn)::String
     allcomponents = components(u.urn)
-    allcomponents[5]
+    passage::String= allcomponents[5]
+    passage
 end
 
 
@@ -71,9 +112,10 @@ julia>
 namespace(CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1.1"))
 ```
 """
-function namespace(u::CtsUrn)
+function namespace(u::CtsUrn)::String
     allcomponents = components(u.urn)
-    allcomponents[3]
+    ns::String = allcomponents[3]
+    ns
 end
 
 end # module

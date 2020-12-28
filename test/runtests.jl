@@ -22,3 +22,11 @@ end
         @test workcomponent(urn) == "tlg0012.tlg001.msA"
         @test passagecomponent(urn)== "1.1"
 end
+
+@testset "Work with passage ranges" begin
+        passagenode = CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1.1")
+        passagerange = CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1.1-1.10")
+        @test isrange(passagerange)
+        @test isrange(passagenode) == false
+
+end
