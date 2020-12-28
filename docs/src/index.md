@@ -7,6 +7,7 @@ CurrentModule = CitableText
 ## Types
 ```@docs
 CtsUrn
+CitableNode
 ```
 
 ## Functions
@@ -14,6 +15,8 @@ CtsUrn
 namespace(u::CtsUrn)
 passagecomponent(u::CtsUrn)
 workcomponent(u::CtsUrn)
+isrange(psg::String)
+isrange((u::CtsUrn)
 ```
 ## Index
 ```@index
