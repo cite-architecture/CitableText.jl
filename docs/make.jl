@@ -3,6 +3,6 @@ pkg"activate .."
 push!(LOAD_PATH,"../src/")
 
 
-using Documenter, CitableText
+using Documenter, DocStringExtensions, CitableText
 
 makedocs(sitename = "CitableText Documentation")
