@@ -3,7 +3,11 @@
 struct CtsUrn
     urn::String
     function CtsUrn(s)
-        ok = validUrn(s)
+        try
+            ok = validUrn(s)
+        catch e
+            throw(e)
+        end
         new(s)
     end
 end
@@ -18,7 +22,14 @@ julia>
 isrange("1.1-1.10"))
 ```
 """
-function isrange(psg::String)::Bool
+function isrange(psg::AbstractString)::Bool
+    # Kludge to work around some kind of error when first
+    # range element is empty
+    if psg == ""
+        false
+    elseif psg[1] == "-"
+        throw(ArgumentError("Invalid passage component `$(psg)`.  Range parts may not be empty."))
+    end
     rangeparts = split(psg,"-")
 
     partcount = size(rangeparts,1)

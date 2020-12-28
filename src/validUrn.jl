@@ -1,7 +1,7 @@
 
 function validUrn(s::String)::Bool
-    range = isrange(s)
     toplevel = components(s)
+
     if size(toplevel,1) != 5
         throw(ArgumentError("Invalid URN `$(s)`.  CtsUrns must have 5 top-level components."))
     elseif toplevel[1] != "urn"
@@ -12,10 +12,19 @@ function validUrn(s::String)::Bool
         throw(ArgumentError("Invalid string: `$(s)`. CTS namespace cannot be empty."))
     elseif toplevel[4] == ""
         throw(ArgumentError("Invalid string: `$(s)`. CTS work hierarchy cannot be empty."))
-
-
         # OK for passage hierarchy to be empty.
     else
-        true
+        # Check for malformed passage syntax:
+        if toplevel[5] == ""
+            true
+        else
+            psg = toplevel[5]
+            try
+                range = isrange(psg)
+            catch e
+                throw(e)
+            end
+            true
+        end
     end
 end
