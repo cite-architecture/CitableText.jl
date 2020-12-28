@@ -8,6 +8,7 @@ export CtsUrn, workcomponent, passagecomponent, namespace, isrange
 struct CtsUrn
     urn::String
     function CtsUrn(s)
+        range = isrange(s)
         toplevel = components(s)
         if size(toplevel,1) != 5
             throw(ArgumentError("Invalid URN `$(s)`.  CtsUrns must have 5 top-level components."))
@@ -40,11 +41,17 @@ isrange("1.1-1.10"))
 """
 function isrange(psg::String)::Bool
     rangeparts = split(psg,"-")
+
     partcount = size(rangeparts,1)
     if (partcount > 2)
-        throw(ArgumentError("Invalid passage component $(psg).  Too many hyphen-delimited parts."))
+        throw(ArgumentError("Invalid passage component `$(psg)`.  Too many hyphen-delimited parts."))
     elseif partcount == 2
-        true
+        if "" in rangeparts
+            throw(ArgumentError("Invalid passage component `$(psg)`.  Range parts may not be empty."))
+        else
+            true
+        end
+
     else
         false
     end
@@ -62,8 +69,8 @@ julia>
 isrange(CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1.1-1.10"))
 ```
 """
-function isrange(urn::CtsUrn)::Bool
-    isrange(passagecomponent(urn))
+function isrange(u::CtsUrn)::Bool
+    isrange(passagecomponent(u))
 end
 
 

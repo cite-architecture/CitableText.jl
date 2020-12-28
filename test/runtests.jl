@@ -8,7 +8,7 @@ using Test
 
 end
 
-@testset "Test required components" begin
+@testset "Test required syntax for components" begin
         @test_throws ArgumentError("Invalid string: `urnX:cts:namespace:group:`. First component of a CtsUrn must be `urn`.") CtsUrn("urnX:cts:namespace:group:")
         @test_throws ArgumentError("Invalid string: `urn:ctsX:namespace:group:`. Second component of a CtsUrn must be `cts`.") CtsUrn("urn:ctsX:namespace:group:")
 
@@ -24,9 +24,19 @@ end
 end
 
 @testset "Work with passage ranges" begin
+        # isrange has methods for Strings and for CtsUrns
+        @test_throws ArgumentError("Invalid passage component `-1`.  Range parts may not be empty.") isrange("-1")
+        @test_throws ArgumentError("Invalid passage component `1-`.  Range parts may not be empty.") isrange("1-")
+        @test_throws ArgumentError("Invalid passage component `1-2-3`.  Too many hyphen-delimited parts.") isrange("1-2-3")
+
         passagenode = CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1.1")
         passagerange = CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1.1-1.10")
         @test isrange(passagerange)
         @test isrange(passagenode) == false
 
+        @test_throws ArgumentError("Invalid passage component `urn:cts:ns:group.work:1-`.  Range parts may not be empty.") CtsUrn("urn:cts:ns:group.work:1-")
+
+end
+
+@testset "Work with passage subreferences" begin
 end
