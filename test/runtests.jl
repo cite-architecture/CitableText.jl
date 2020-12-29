@@ -41,6 +41,25 @@ end
         @test_throws ArgumentError("Invalid passage component `-1`.  Range parts may not be empty.") CitableText.validUrn("urn:cts:ns:work:-1")
 end
 
+@testset "Validate subreference structure" begin
+        # String method
+        @test hassubref("1.1@μῆνιν")
+        @test hassubref("1.1") == false
+        @test_throws ArgumentError("Invalid passage component `@μῆνιν`.  Subreference may not be empty.") hassubref("@μῆνιν")
+        @test hassubref("1.1@μῆνιν-1.2")
+        @test hassubref("1.1@μῆνιν-1.2@οὐλομένην")
+        @test hassubref("1.1-1.2@οὐλομένην")
+
+
+        # URN method
+        @test hassubref(CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1.1@μῆνιν"))
+        @test hassubref(CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1.1")) == false
+        @test_throws ArgumentError("Invalid passage component `@μῆνιν`.  Subreference may not be empty.") hassubref(CtsUrn("urn:cts:greekLit:tlg0012.tlg001:@μῆνιν"))
+
+
+        #@test hassubref(CtsUrn("urn:cts:greekLit:tlg0012.tlg001:@μῆνιν-1.2"))
+end
+
 @testset "Extract top-level components of a CtsUrn" begin
         urn = CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1.1")
 
@@ -52,7 +71,7 @@ end
 end
 
 @testset "Extract range components" begin
-        #@test rangebegin("urn:cts:greekLit:tlg0012.tlg001.msA:1.1-1.10") == "1.1"
+        @test rangebegin(CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1.1-1.10")) == "1.1"
 end
 
 @testset "Extract passage subreferences" begin
@@ -71,8 +90,8 @@ end
         @test_throws ArgumentError("Invalid passage component `1-2-3`.  Too many hyphen-delimited parts.") isrange("1-2-3")
 
         # CtsUrn method:
-        passagerange = CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1.1-1.10")
-        @test isrange(passagerange)
+        #passagerange = CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1.1-1.10")
+        #@test isrange(passagerange)
 
         passagenode = CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1.1")
         @test isrange(passagenode) == false

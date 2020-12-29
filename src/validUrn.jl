@@ -22,6 +22,8 @@ function validUrn(s::String)::Bool
             try
                 # isrange throws errors if it finds invalid range syntax
                 range = isrange(psg)
+                #hassubref throws errors if it finds invalid subref syntax
+                subref = hassubref(psg)
             catch e
                 throw(e)
             end

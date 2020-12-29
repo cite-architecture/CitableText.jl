@@ -2,11 +2,18 @@ module CitableText
 
 using CitableBase, Documenter, DocStringExtensions
 
-export CtsUrn, CitableNode, workcomponent, passagecomponent, namespace,
-    isrange, rangebegin
+export CtsUrn,
+    namespace, workcomponent, passagecomponent,
+    isrange, rangebegin, rangeend,
+    hassubref, subref,
+    CitableNode
 
-include("validUrn.jl")
+
 include("ctsUrn.jl")
+include("urncomponents.jl")
+include("ranges.jl")
+include("subrefs.jl")
+include("validUrn.jl")
 include("citableNode.jl")
 
 
