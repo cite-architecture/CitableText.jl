@@ -1,10 +1,14 @@
 
 # Index of components of a CTS URN:
-const PASSAGE = 5
-const WORK = 4
-const NAMESPACE = 3
-const URNTYPE = 2
 const URN = 1
+const URNTYPE = 2
+const NAMESPACE = 3
+const WORK = 4
+const PASSAGE = 5
+
+
+
+
 
 # Index of parts of work hierarchy:
 const GROUP = 1

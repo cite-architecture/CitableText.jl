@@ -11,7 +11,7 @@ The 1.0 release will focus on a robust library for working with CTS URNs.
 Some functions defined in the Scala library ([API docs](https://cite-architecture.github.io/cite-api-docs/xcite/api/edu/holycross/shot/cite/CtsUrn.html)) that could be implemented here:
 
 - [x] adding/dropping the passage component of a CtsUrn
-- [ ] adding/dropping the version part of a CtsUrn's work hierarchy
+- [x] adding/dropping the version part of a CtsUrn's work hierarchy
 - [ ] adding/dropping the exemplar part of a CtsUrn's work hierarchy
 - [x] finding the depth of the passage citation hierarchy
 - [ ] collapsing the passage citation hierarchy to a given depth or by a relative amount

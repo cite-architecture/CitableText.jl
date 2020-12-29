@@ -4,7 +4,8 @@ using CitableBase, Documenter, DocStringExtensions
 
 export CtsUrn,
     namespace, workcomponent, passagecomponent,
-    passagedepth, droppassage, addpassage,
+    passagedepth, passageparts, droppassage, addpassage,
+    workdepth, workparts, dropversion, addversion,
     isrange, rangebegin, rangeend,
     hassubref, subref,
     CitableNode
@@ -13,8 +14,8 @@ export CtsUrn,
 include("constants.jl")
 include("ctsUrn.jl")
 include("urncomponents.jl")
+include("componentparts.jl")
 include("urnmanipulation.jl")
-include("passages.jl")
 include("ranges.jl")
 include("subrefs.jl")
 include("validUrn.jl")

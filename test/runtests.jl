@@ -101,20 +101,30 @@ end
         @test_throws ArgumentError("Invalid subreference syntax `1.1@μῆνιν @ἄειδε`.  Too many `@` characters.") CitableText.subref("1.1@μῆνιν @ἄειδε") == "μῆνιν"
 end
 
-@testset "Count depth of passage hierarchy" begin
+@testset "Count parts in top-tier hierarchies" begin
         @test passagedepth(CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1")) == 1
         @test passagedepth(CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1.1")) == 2
         @test passagedepth(CtsUrn("urn:cts:greekLit:tlg0012.tlg001:")) == 0
+
+        @test workdepth(CtsUrn("urn:cts:greekLit:tlg0012:")) == CitableText.GROUP
+        @test workdepth(CtsUrn("urn:cts:greekLit:tlg0012.tlg001:")) == CitableText.TEXT
+        @test workdepth(CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:")) == CitableText.TEXTVERSION
+        @test workdepth(CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA.tokens:")) == CitableText.EXEMPLAR
 end
-
-
 
 @testset "Test URN manipulation" begin
         urn = CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1.1")
         @test droppassage(urn) == CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:")
-
         @test addpassage(urn, "2.1") == CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:2.1")
 
+        @test dropversion(urn) == CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1.1")
+        @test dropversion(CtsUrn("urn:cts:greekLit:tlg0012.tlg001:")) == CtsUrn("urn:cts:greekLit:tlg0012.tlg001:")
+        @test dropversion(CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA.tokens:")) == CtsUrn("urn:cts:greekLit:tlg0012.tlg001:")
+        @test dropversion(CtsUrn("urn:cts:greekLit:tlg0012:")) == CtsUrn("urn:cts:greekLit:tlg0012:")
+
+        @test addversion(urn, "msB").urn == CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msB:1.1").urn
+        @test addversion( CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1.1"), "msB").urn == CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msB:1.1").urn
+        @test addversion( CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA.tokens:1.1"), "msB").urn == CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msB:1.1").urn
 end
 #end # End of testset for CtsUrns
 
@@ -128,7 +138,6 @@ end
         @test cn.text == content
 end
 end
-
 
 @testset "Test OHCO2 corpus" begin
 end
