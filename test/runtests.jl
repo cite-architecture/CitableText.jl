@@ -162,6 +162,11 @@ end # End of testset for CtsUrns
         @test passageContains(urn1, urn3) == false
         @test passageContains(urn1, urn1)
 
+
+        @test >(urn2, urn1)
+        @test >(urn1, urn2) == false
+        @test >(urn3, urn2)
+
 end
 
 @testset "Test canonically citable nodes" begin

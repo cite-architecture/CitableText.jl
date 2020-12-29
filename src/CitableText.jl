@@ -11,6 +11,7 @@ export CtsUrn,
     isrange, rangebegin, rangeend,
     hassubref, subref,
     workContains, passageContains,
+    >,
     CitableNode
 
 

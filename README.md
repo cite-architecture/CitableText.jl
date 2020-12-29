@@ -18,7 +18,7 @@ Some functions defined in the Scala library ([API docs](https://cite-architectur
 
 URN comparison:
 
-- [ ] <, >, equality, <=, >=
+- [x] >, equality
 - [ ] URN similarity (twiddling/negate twiddling )
 
 ## Plans for version 2.0

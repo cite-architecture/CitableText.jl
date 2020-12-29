@@ -1,5 +1,5 @@
 import Base.:>
-import Base.:<
+
 
 "True if work component or `urn1` contains or is equal to work component of `urn2`."
 function workContains(urn1::CtsUrn, urn2::CtsUrn)::Bool
@@ -22,6 +22,7 @@ function passageContains(urn1::CtsUrn, urn2::CtsUrn)::Bool
 end
 
 
+
 function >(urn1::CtsUrn, urn2::CtsUrn)::Bool
-    urn1 == urn2
+    workContains(urn1,urn2) && passageContains(urn1, urn2)
 end
