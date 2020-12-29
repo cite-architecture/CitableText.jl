@@ -101,6 +101,11 @@ end
         @test_throws ArgumentError("Invalid subreference syntax `1.1@μῆνιν @ἄειδε`.  Too many `@` characters.") CitableText.subref("1.1@μῆνιν @ἄειδε") == "μῆνιν"
 end
 
+@testset "Count depth of passage hierarchy" begin
+        @test passagedepth(CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1")) == 1
+        @test passagedepth(CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1.1")) == 2
+        @test passagedepth(CtsUrn("urn:cts:greekLit:tlg0012.tlg001:")) == 0
+end
 
 
 #end # End of testset for CtsUrns
