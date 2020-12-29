@@ -1,4 +1,5 @@
 
+
 function droppassage(u::CtsUrn)::CtsUrn
     save = components(u.urn)[URN:WORK]
     newarray = push!(save,"")

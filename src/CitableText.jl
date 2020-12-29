@@ -2,6 +2,7 @@ module CitableText
 
 using CitableBase, Documenter, DocStringExtensions
 
+
 export CtsUrn,
     namespace, workcomponent, passagecomponent,
     passagedepth, passageparts, droppassage, addpassage,
@@ -9,6 +10,7 @@ export CtsUrn,
     collapsePassageTo, collapsePassageBy,
     isrange, rangebegin, rangeend,
     hassubref, subref,
+    workContains, passageContains,
     CitableNode
 
 
@@ -20,6 +22,7 @@ include("urnmanipulation.jl")
 include("ranges.jl")
 include("subrefs.jl")
 include("validUrn.jl")
+include("urncomparison.jl")
 include("citableNode.jl")
 
 end # module
