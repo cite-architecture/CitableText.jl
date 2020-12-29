@@ -12,6 +12,7 @@ export CtsUrn,
 
 include("ctsUrn.jl")
 include("urncomponents.jl")
+include("passages.jl")
 include("ranges.jl")
 include("subrefs.jl")
 include("validUrn.jl")
