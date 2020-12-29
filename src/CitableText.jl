@@ -5,7 +5,7 @@ using CitableBase, Documenter, DocStringExtensions
 export CtsUrn,
     namespace, workcomponent, passagecomponent,
     passagedepth, passageparts, droppassage, addpassage,
-    workdepth, workparts, dropversion, addversion,
+    workdepth, workparts, dropversion, addversion, dropexemplar, addexemplar,
     isrange, rangebegin, rangeend,
     hassubref, subref,
     CitableNode

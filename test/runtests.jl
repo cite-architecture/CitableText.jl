@@ -125,6 +125,15 @@ end
         @test addversion(urn, "msB").urn == CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msB:1.1").urn
         @test addversion( CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1.1"), "msB").urn == CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msB:1.1").urn
         @test addversion( CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA.tokens:1.1"), "msB").urn == CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msB:1.1").urn
+
+
+        @test dropexemplar(urn) == CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1.1")
+        @test dropexemplar(CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA.tokens:1.1")) == CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1.1")
+
+        @test addexemplar(urn, "tokens") == CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA.tokens:1.1")
+        @test_throws ArgumentError("Cannot add exemplar to URN without version: `urn:cts:greekLit:tlg0012.tlg001:1.1`.") addexemplar(CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1.1"), "tokens")
+
+
 end
 #end # End of testset for CtsUrns
 

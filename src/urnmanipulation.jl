@@ -36,5 +36,34 @@ function addversion(u::CtsUrn, vers::String)
     CtsUrn(join(newurnstring,":"))
 end
 
+function dropexemplar(u::CtsUrn)::CtsUrn
+    top = components(u.urn)[URN:NAMESPACE]
+    if workdepth(u) <= TEXTVERSION
+        withversion = push!(top,workcomponent(u))
+        urnparts = push!(withversion, passagecomponent(u))
+        CtsUrn(join(urnparts,":"))
+    else
+        newversion = join(workparts(u)[GROUP:TEXTVERSION],".")
+        withversion = push!(top, newversion)
+        urnparts = push!(withversion, passagecomponent(u))
+        CtsUrn(join(urnparts,":"))
+    end
+end
+
+function addexemplar(u::CtsUrn,ex::String)::CtsUrn
+    if workdepth(u) < TEXTVERSION
+        throw(ArgumentError("Cannot add exemplar to URN without version: `$(u.urn)`."))
+
+    else
+        top = components(u.urn)[URN:NAMESPACE]
+        trimmed = dropexemplar(u)
+        newparts = push!(workparts(trimmed),ex)
+        newexemplar = join(newparts,".")
+        newcomponents = push!(top,newexemplar)
+        newurnstring = push!(newcomponents, passagecomponent(u))
+        CtsUrn(join(newurnstring,":"))
+    end
+end
+
 # addexemplar/dropexemplar
 # collapseby/collapseto

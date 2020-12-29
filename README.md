@@ -12,7 +12,7 @@ Some functions defined in the Scala library ([API docs](https://cite-architectur
 
 - [x] adding/dropping the passage component of a CtsUrn
 - [x] adding/dropping the version part of a CtsUrn's work hierarchy
-- [ ] adding/dropping the exemplar part of a CtsUrn's work hierarchy
+- [x] adding/dropping the exemplar part of a CtsUrn's work hierarchy
 - [x] finding the depth of the passage citation hierarchy
 - [ ] collapsing the passage citation hierarchy to a given depth or by a relative amount
 
