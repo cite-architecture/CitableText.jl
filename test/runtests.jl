@@ -108,6 +108,14 @@ end
 end
 
 
+
+@testset "Test URN manipulation" begin
+        urn = CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1.1")
+        @test droppassage(urn) == CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:")
+
+        @test addpassage(urn, "2.1") == CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:2.1")
+
+end
 #end # End of testset for CtsUrns
 
 

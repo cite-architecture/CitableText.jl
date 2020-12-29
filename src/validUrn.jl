@@ -1,5 +1,5 @@
 "True if s fully compiles with CtsUrn syntax."
-function validUrn(s::String)::Bool
+function validUrn(s::AbstractString)::Bool
     toplevel = components(s)
 
     if size(toplevel,1) != 5
