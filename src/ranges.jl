@@ -71,7 +71,7 @@ function rangebegin(u::CtsUrn)::String
 end
 
 function rangeend(u::CtsUrn)::String
-    rangebegin(passagecomponent(u))
+    rangeend(passagecomponent(u))
 end
 
 function rangeend(s::AbstractString)::String
