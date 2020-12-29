@@ -20,3 +20,7 @@ URN comparison:
 
 - [ ] <, >, equality, <=, >=
 - [ ] URN similarity (twiddling/negate twiddling )
+
+## Plans for version 2.0
+
+Version 2.0 will focus on working with a Corpus modelled on the the OHCO2 model of an ordered hierarchy of citable objects.
