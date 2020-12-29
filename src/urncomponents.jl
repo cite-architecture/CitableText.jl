@@ -1,3 +1,20 @@
+# Functions to extract top-level components from a CTS URN
+
+"""
+$(SIGNATURES)
+Extract CTS namespace from a CtsUrn.
+
+# Examples
+```julia-repl
+julia>
+namespace(CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1.1"))
+```
+"""
+function namespace(u::CtsUrn)::String
+    allcomponents = components(u.urn)
+    ns::String = allcomponents[3]
+    ns
+end
 
 """
 $(SIGNATURES)
@@ -15,8 +32,6 @@ function workcomponent(u::CtsUrn)::String
     work
 end
 
-
-
 """
 $(SIGNATURES)
 Extract passage component from a CtsUrn.
@@ -31,21 +46,4 @@ function passagecomponent(u::CtsUrn)::String
     allcomponents = components(u.urn)
     passage::String= allcomponents[5]
     passage
-end
-
-
-"""
-$(SIGNATURES)
-Extract CTS namespace from a CtsUrn.
-
-# Examples
-```julia-repl
-julia>
-namespace(CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1.1"))
-```
-"""
-function namespace(u::CtsUrn)::String
-    allcomponents = components(u.urn)
-    ns::String = allcomponents[3]
-    ns
 end

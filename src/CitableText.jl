@@ -9,6 +9,8 @@ export CtsUrn,
     hassubref, subref,
     CitableNode
 
+
+include("constants.jl")
 include("ctsUrn.jl")
 include("urncomponents.jl")
 include("urnmanipulation.jl")
