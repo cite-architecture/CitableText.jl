@@ -112,7 +112,7 @@ end
         @test workdepth(CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA.tokens:")) == CitableText.EXEMPLAR
 end
 
-@testset "Test URN manipulation" begin
+@testset "Test add/dropping work parts" begin
         urn = CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1.1")
         @test droppassage(urn) == CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:")
         @test addpassage(urn, "2.1") == CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:2.1")
@@ -133,8 +133,18 @@ end
         @test addexemplar(urn, "tokens") == CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA.tokens:1.1")
         @test_throws ArgumentError("Cannot add exemplar to URN without version: `urn:cts:greekLit:tlg0012.tlg001:1.1`.") addexemplar(CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1.1"), "tokens")
 
-
 end
+
+@testset "Test collapsing passage hierarchy" begin
+        urn = CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1.1")
+        @test collapsePassageTo(urn,1) == CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1")
+
+        @test_throws ArgumentError("Invalid request: requested depth 3 too deep for URN `urn:cts:greekLit:tlg0012.tlg001.msA:1.1`.") collapsePassageTo(urn,3)
+
+        @test collapsePassageBy(urn,1) == CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1")
+        @test collapsePassageBy(urn,2) == CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:")
+end
+
 #end # End of testset for CtsUrns
 
 

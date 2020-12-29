@@ -65,5 +65,27 @@ function addexemplar(u::CtsUrn,ex::String)::CtsUrn
     end
 end
 
-# addexemplar/dropexemplar
-# collapseby/collapseto
+
+function collapsePassageTo(u::CtsUrn, count::Int64)::CtsUrn
+    if count > passagedepth(u)
+        throw(ArgumentError("Invalid request: requested depth $(count) too deep for URN `$(u.urn)`."))
+    else
+        top = components(u.urn)[URN:WORK]
+        newpassageparts = passageparts(u)[1,count]
+        newcomponents = push!(top,join(newpassageparts,"."))
+        CtsUrn(join(newcomponents,":"))
+    end
+end
+
+function collapsePassageBy(u::CtsUrn, count::Int64)
+    if count > passagedepth(u)
+        throw(ArgumentError("Invalid request: requested depth $(count) too deep for URN `$(u.urn)`."))
+    elseif count == passagedepth(u)
+        droppassage(u)
+    else
+        top = components(u.urn)[URN:WORK]
+        newpassageparts = passageparts(u)[1,passagedepth(u) - count]
+        newcomponents = push!(top,join(newpassageparts,"."))
+        CtsUrn(join(newcomponents,":"))
+    end
+end

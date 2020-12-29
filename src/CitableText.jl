@@ -6,6 +6,7 @@ export CtsUrn,
     namespace, workcomponent, passagecomponent,
     passagedepth, passageparts, droppassage, addpassage,
     workdepth, workparts, dropversion, addversion, dropexemplar, addexemplar,
+    collapsePassageTo, collapsePassageBy,
     isrange, rangebegin, rangeend,
     hassubref, subref,
     CitableNode
