@@ -10,8 +10,7 @@ export CtsUrn,
     collapsePassageTo, collapsePassageBy,
     isrange, rangebegin, rangeend,
     hassubref, subref,
-    workContains, passageContains,
-    >,
+    workContains, passageContains, urncontains,
     CitableNode
 
 

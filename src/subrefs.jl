@@ -48,3 +48,7 @@ function subref(s::String)::String
         ""
     end
 end
+
+
+function dropsubref(s::String)::String
+end
