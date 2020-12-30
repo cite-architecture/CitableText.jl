@@ -1,6 +1,6 @@
 
-@testset "Test canonically citable nodes" begin
-@testset "Work with canonically citable nodes" begin
+@testset "Canonically citable nodes" begin
+@testset "Construct citable node" begin
         urn = CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1.1")
         content = "μῆνιν ἄειδε, θεά, Πηληϊάδεω Ἀχιλῆος"
         cn = CitableNode(urn,content)

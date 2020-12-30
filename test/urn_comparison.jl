@@ -1,5 +1,5 @@
 
-@testset "Test pair-wise comparison of CtsUrns" begin
+@testset "Pair-wise comparison of CtsUrns" begin
         urn1 = CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1.1")
         urn2 = CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1.1")
         urn3 =  CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1")

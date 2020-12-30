@@ -1,3 +1,4 @@
+@testset "CTS URN construction and validation" begin
 @testset "Test number of URN string's top-level components" begin
         @test_throws ArgumentError("Invalid URN ``.  CtsUrns must have 5 top-level components.") CtsUrn("")
 
@@ -71,4 +72,5 @@ end
         @test hassubref("urn:cts:greekLit:tlg0012.tlg001:1.1@μῆνιν-1.2@οὐλομένην")
         @test hassubref("urn:cts:greekLit:tlg0012.tlg001:1.1-1.2@οὐλομένην")
 
+end
 end
