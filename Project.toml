@@ -1,7 +1,7 @@
 name = "CitableText"
 uuid = "41e66566-473b-49d4-85b7-da83b66615d8"
 authors = ["Neel Smith <dnsmith.neel@gmail.com>"]
-version = "0.1.0"
+version = "1.0.0"
 
 [deps]
 Atom = "c52e3926-4ff0-5f6e-af25-54175e0327b1"

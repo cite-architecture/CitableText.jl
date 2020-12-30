@@ -1,5 +1,14 @@
 
+"""
+$(SIGNATURES)
+True if String has a subreference.
 
+# Examples
+```julia-repl
+julia>
+hassubref(CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1.1-1.10@μῆνιν"))
+```
+"""
 function hassubref(psg::AbstractString)::Bool
     if isrange(psg)
         hassubref(rangebegin(psg)) || hassubref(rangeend(psg))
@@ -31,11 +40,32 @@ function hassubref(psg::AbstractString)::Bool
     end
 end
 
+
+"""
+$(SIGNATURES)
+True if CtsUrn has a subreference.
+
+# Examples
+```julia-repl
+julia>
+hassubref(CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1.1-1.10@μῆνιν"))
+```
+"""
 function hassubref(u::CtsUrn)::Bool
     hassubref(passagecomponent(u))
 end
 
 
+"""
+$(SIGNATURES)
+Extract subrerence part of a passage string.
+
+# Examples
+```julia-repl
+julia>
+subref(1.1-1.10@μῆνιν")
+```
+"""
 function subref(s::String)::String
     segments = split(s,"@")
     count = size(segments,1)

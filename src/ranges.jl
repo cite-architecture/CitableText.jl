@@ -52,6 +52,16 @@ function isrange(u::CtsUrn)::Bool
 end
 
 
+"""
+$(SIGNATURES)
+Extract first range part from a passage component.
+
+# Examples
+```julia-repl
+julia>
+rangebegin("1.1-1.10"))
+```
+"""
 function rangebegin(s::AbstractString)::String
     try
         if isrange(s)
@@ -66,14 +76,47 @@ function rangebegin(s::AbstractString)::String
 end
 
 
+
+"""
+$(SIGNATURES)
+Extract first range part from a CtsUrn.
+
+# Examples
+```julia-repl
+julia>
+rangebegin(CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1.1-1.10"))
+```
+"""
 function rangebegin(u::CtsUrn)::String
     rangebegin(passagecomponent(u))
 end
 
+
+
+"""
+$(SIGNATURES)
+Extract second range part from a passage component.
+
+# Examples
+```julia-repl
+julia>
+rangeend("1.1-1.10"))
+```
+"""
 function rangeend(u::CtsUrn)::String
     rangeend(passagecomponent(u))
 end
 
+"""
+$(SIGNATURES)
+Extract second range part from a CtsUrn.
+
+# Examples
+```julia-repl
+julia>
+rangeend(CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1.1-1.10"))
+```
+"""
 function rangeend(s::AbstractString)::String
     try
         if isrange(s)
