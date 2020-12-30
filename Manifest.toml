@@ -36,8 +36,6 @@ version = "2.5.0"
 [[CitableBase]]
 deps = ["DocStringExtensions", "Documenter", "Test"]
 git-tree-sha1 = "cf8565e3f38e9b8658572d2f091c1b7e22668501"
-repo-rev = "main"
-repo-url = "https://github.com/cite-architecture/CitableBase.jl"
 uuid = "d6f014bd-995c-41bd-9893-703339864534"
 version = "1.0.0"
 
