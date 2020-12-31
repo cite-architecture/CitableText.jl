@@ -28,11 +28,9 @@ end
 
 @testset "Test collapsing passage hierarchy" begin
         urn = CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1.1")
-        @test collapsePassageTo(urn,1) == CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1")
-
         @test_throws ArgumentError("Invalid request: requested depth 3 too deep for URN `urn:cts:greekLit:tlg0012.tlg001.msA:1.1`.") collapsePassageTo(urn,3)
-
-        @test collapsePassageBy(urn,1) == CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1")
-        @test collapsePassageBy(urn,2) == CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:")
+        @test collapsePassageTo(urn,1) == CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1")
+        @test collapsePassageBy(CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1.1"), 0) == CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1.1")
+        @test collapsePassageBy(CtsUrn("urn:cts:latinLit:stoa1263.stoa001.hc:8pr.title"), 1) ==  CtsUrn("urn:cts:latinLit:stoa1263.stoa001.hc:8pr")
 end
 end

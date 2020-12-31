@@ -171,15 +171,17 @@ julia>
 collapsePassageBy(CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1.1-1.10"))
 ```
 """
-function collapsePassageBy(u::CtsUrn, count::Int64)
-    if count > passagedepth(u)
-        throw(ArgumentError("Invalid request: requested depth $(count) too deep for URN `$(u.urn)`."))
-    elseif count == passagedepth(u)
+function collapsePassageBy(u::CtsUrn, n::Int64)::CtsUrn
+    if n > passagedepth(u)
+        throw(ArgumentError("Invalid request: requested depth $(n) too deep for URN `$(u.urn)`."))
+    elseif n == passagedepth(u)
         droppassage(u)
     else
-        top = components(u.urn)[URN:WORK]
-        newpassageparts = passageparts(u)[1,passagedepth(u) - count]
-        newcomponents = push!(top,join(newpassageparts,"."))
+        top = components(u.urn)[CitableText.URN:CitableText.WORK]
+        diff = passagedepth(u) - n
+        newpassageparts = passageparts(u)[1:diff]
+        newpassage = join(newpassageparts,".")
+        newcomponents = push!(top,newpassage)
         CtsUrn(join(newcomponents,":"))
     end
 end
