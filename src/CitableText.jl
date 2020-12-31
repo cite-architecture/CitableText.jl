@@ -12,7 +12,8 @@ export CtsUrn,
     hassubref, subref,
     workContains, passageContains,
     >,
-    CitableNode
+    CitableNode,
+    CitableCorpus
 
 
 include("constants.jl")
@@ -25,5 +26,6 @@ include("subrefs.jl")
 include("validUrn.jl")
 include("urncomparison.jl")
 include("citableNode.jl")
+include("corpus.jl")
 
 end # module
