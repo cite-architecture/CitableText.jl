@@ -5,13 +5,14 @@ using CitableBase, Documenter, DocStringExtensions
 
 export CtsUrn,
     namespace, workcomponent, passagecomponent,
-    passagedepth, passageparts, droppassage, addpassage,
-    workdepth, workparts, dropversion, addversion, dropexemplar, addexemplar,
-    collapsePassageTo, collapsePassageBy,
-    isrange, rangebegin, rangeend,
+    passagedepth, passageparts, workdepth, workparts,
+    isrange, 
+    rangebegin, rangeend,
     hassubref, subref,
-    workContains, passageContains,
-    >,
+    droppassage, addpassage,
+    dropversion, addversion, dropexemplar, addexemplar,
+    collapsePassageTo, collapsePassageBy,
+    workContains, passageContains, urncontains,
     CitableNode,
     CitableCorpus
 
