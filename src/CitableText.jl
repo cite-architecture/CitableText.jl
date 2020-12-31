@@ -14,7 +14,9 @@ export CtsUrn,
     collapsePassageTo, collapsePassageBy,
     workContains, passageContains, urncontains,
     CitableNode,
-    CitableCorpus
+    CitableCorpus,
+    nextnode, prevnode,
+    retrieve
 
 
 include("constants.jl")
@@ -28,5 +30,7 @@ include("validUrn.jl")
 include("urncomparison.jl")
 include("citableNode.jl")
 include("corpus.jl")
+include("retrieval.jl")
+include("navigation.jl")
 
 end # module
