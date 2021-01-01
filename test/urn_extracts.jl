@@ -28,5 +28,12 @@ end
         @test workdepth(CtsUrn("urn:cts:greekLit:tlg0012.tlg001:")) == CitableText.TEXT
         @test workdepth(CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:")) == CitableText.TEXTVERSION
         @test workdepth(CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA.tokens:")) == CitableText.EXEMPLAR
+
+
+
+        linerange = CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1.1-1.2@οὐλομένην")
+        @test passagedepth(linerange) == 2
 end
+
+
 end

@@ -15,7 +15,13 @@ function passagedepth(u::CtsUrn)::Int64
     if passagecomponent(u) == ""
         0
     else
-        size(passageparts(u), 1)
+        if (isrange(u))
+            pt1 = rangebegin(u)
+            size(parts(pt1), 1)
+        else
+            size(passageparts(u), 1)
+        end
+
     end
 end
 
