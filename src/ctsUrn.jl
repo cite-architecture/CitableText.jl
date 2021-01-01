@@ -1,6 +1,6 @@
 
 "Implementation of the CTS URN. See  [http://cite-architecture.org/ctsurn/](http://cite-architecture.org/ctsurn/)."
-struct CtsUrn
+struct CtsUrn <: Urn
     urn::String
     function CtsUrn(s)
         try
