@@ -15,10 +15,13 @@ export namespace, workcomponent, passagecomponent,
   collapsePassageTo, collapsePassageBy,
   workcontains, passagecontains, urncontains
     
-export CitableNode, CitableCorpus, CatalogedText
+export CitableNode, CitableCorpus
 export fromdelimited, fromfile, fromurl,
   nextnode, prevnode #,
   #retrieve
+
+export CatalogedText
+export catalog
 
 
 include("constants.jl")

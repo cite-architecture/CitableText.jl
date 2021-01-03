@@ -9,3 +9,4 @@ include("citable_nodes.jl")
 include("corpus_navigation.jl")
 # This one is slow:
 include("corpus.jl")
+include("catalog.jl")

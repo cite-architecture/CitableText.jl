@@ -41,6 +41,7 @@ fromfile(::Type{T}, filename::AbstractString, delimiter::AbstractString="#") whe
 fromurl(::Type{T}, url::AbstractString, delimiter::AbstractString="#") where {T <: Union{CitableCorpus, CatalogedText}} 
 nextnode(n::CitableNode, c::CitableCorpus)
 prevnode(n::CitableNode, c::CitableCorpus)
+catalog(arr)
 ```
 ## Index
 ```@index
