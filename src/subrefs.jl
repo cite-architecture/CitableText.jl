@@ -79,7 +79,27 @@ function subref(s::AbstractString)
     end
 end
 
-
+"""
+$(SIGNATURES)
+Remove any subreference substrings in a string.
+"""
 function dropsubref(s::AbstractString)
-    "TO BE IMPLEMENTED"
+    if isrange(s)
+        r1parts = split(rangebegin(s),"@")
+        r2parts = split(rangeend(s),"@")
+        r1parts[1] * "-" * r2parts[1]
+    else 
+        parts = split(s, "@")
+        parts[1]
+    end
+end
+
+
+"""
+$(SIGNATURES)
+Remove any subreferences from a CtsUrn.
+"""
+function dropsubref(u::CtsUrn)
+    psg = dropsubref(passagecomponent(u))
+    addpassage(u, psg)
 end

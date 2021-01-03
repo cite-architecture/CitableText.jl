@@ -30,8 +30,12 @@ dropversion(u::CtsUrn)
 addversion(u::CtsUrn, vers::String)
 dropexemplar(u::CtsUrn)
 addexemplar(u::CtsUrn, ex::String)
+dropsubref(u::CtsUrn)
 collapsePassageTo(u::CtsUrn, count::Int64)
 collapsePassageBy(u::CtsUrn, count::Int64)
+workcontains(urn1::CtsUrn, urn2::CtsUrn), 
+passagecontains(urn1::CtsUrn, urn2::CtsUrn)
+urncontains(urn1::CtsUrn, urn2::CtsUrn)
 ```
 ## Index
 ```@index

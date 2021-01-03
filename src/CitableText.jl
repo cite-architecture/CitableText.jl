@@ -11,12 +11,14 @@ export CtsUrn,
     hassubref, subref,
     droppassage, addpassage,
     dropversion, addversion, dropexemplar, addexemplar,
+    dropsubref,
     collapsePassageTo, collapsePassageBy,
-    workContains, passageContains, urncontains,
+    workcontains, passagecontains, urncontains,
     CitableNode,
-    CitableCorpus,
-    nextnode, prevnode,
-    retrieve
+    CitableCorpus#,
+    #fromcex, fromfile,
+    #nextnode, prevnode,
+    #retrieve
 
 
 include("constants.jl")

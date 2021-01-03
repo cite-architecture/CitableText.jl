@@ -4,13 +4,13 @@
         urn2 = CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1.1")
         urn3 =  CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1")
 
-        @test workContains(urn1,urn2) == false
-        @test workContains(urn2,urn1)
-        @test workContains(urn1,urn1)
+        @test workcontains(urn1,urn2) == false
+        @test workcontains(urn2,urn1)
+        @test workcontains(urn1,urn1)
 
-        @test passageContains(urn3, urn1)
-        @test passageContains(urn1, urn3) == false
-        @test passageContains(urn1, urn1)
+        @test passagecontains(urn3, urn1)
+        @test passagecontains(urn1, urn3) == false
+        @test passagecontains(urn1, urn1)
 
         @test urncontains(urn2, urn1)
         @test urncontains(urn1, urn2) == false
