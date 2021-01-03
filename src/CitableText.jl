@@ -1,22 +1,27 @@
 module CitableText
 
-using CitableBase, Documenter, DocStringExtensions
+using CitableBase, CSV, DataFrames, HTTP
+using Documenter, DocStringExtensions
 
+export CtsUrn
+export namespace, workcomponent, passagecomponent,
+  passagedepth, passageparts, workdepth, workparts,
+  isrange, 
+  rangebegin, rangeend,
+  hassubref, subref,
+  droppassage, addpassage,
+  dropversion, addversion, dropexemplar, addexemplar,
+  dropsubref,
+  collapsePassageTo, collapsePassageBy,
+  workcontains, passagecontains, urncontains
+    
+export CitableNode, CitableCorpus
+export fromdelimited, fromfile, fromurl,
+  nextnode, prevnode #,
+  #retrieve
 
-export CtsUrn,
-    namespace, workcomponent, passagecomponent,
-    passagedepth, passageparts, workdepth, workparts,
-    isrange, 
-    rangebegin, rangeend,
-    hassubref, subref,
-    droppassage, addpassage,
-    dropversion, addversion, dropexemplar, addexemplar,
-    collapsePassageTo, collapsePassageBy,
-    workContains, passageContains, urncontains,
-    CitableNode,
-    CitableCorpus,
-    nextnode, prevnode,
-    retrieve
+export CatalogedText
+export catalog
 
 
 include("constants.jl")
@@ -32,5 +37,9 @@ include("citableNode.jl")
 include("corpus.jl")
 include("retrieval.jl")
 include("navigation.jl")
+include("catalog.jl")
+include("delimited.jl")
+
+
 
 end # module

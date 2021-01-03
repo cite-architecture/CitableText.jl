@@ -26,6 +26,21 @@ end
         @test_throws ArgumentError("Cannot add exemplar to URN without version: `urn:cts:greekLit:tlg0012.tlg001:1.1`.") addexemplar(CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1.1"), "tokens")
 end
 
+
+@testset "Test dropping subreferences" begin
+        @test dropsubref("1.1") == "1.1"
+        @test dropsubref("1.1@X") == "1.1"
+        @test dropsubref("1.1@X-1.2") == "1.1-1.2"
+        @test dropsubref("1.1@X-1.2@Y") == "1.1-1.2"
+
+        @test dropsubref(CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1.1")) == CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1.1")
+        @test dropsubref(CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1.1@μῆνιν")) == CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1.1")
+        @test dropsubref(CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1.1@μῆνιν-1.2")) == CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1.1-1.2")
+        @test dropsubref(CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1.1-1.2@οὐλομένην")) == CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1.1-1.2")
+
+end
+
+
 @testset "Test collapsing passage hierarchy" begin
         urn = CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1.1")
         @test_throws ArgumentError("Invalid request: requested depth 3 too deep for URN `urn:cts:greekLit:tlg0012.tlg001.msA:1.1`.") collapsePassageTo(urn,3)
