@@ -24,7 +24,7 @@ A Julia module for working with citable texts following the OHCO2 model of an or
 
 - [x] URN comparison: urncontains 
 - [ ] retrieve a passage (leaf node, containing node, or range)
-- [ ] find next node
-- [ ] find previous node
+- [x] find next node
+- [x] find previous node
 
 
