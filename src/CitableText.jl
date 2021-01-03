@@ -1,6 +1,6 @@
 module CitableText
 
-using CitableBase, CSV, DataFrames
+using CitableBase, CSV, DataFrames, HTTP
 using Documenter, DocStringExtensions
 
 export CtsUrn
