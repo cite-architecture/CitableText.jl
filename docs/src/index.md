@@ -33,12 +33,14 @@ addexemplar(u::CtsUrn, ex::String)
 dropsubref(u::CtsUrn)
 collapsePassageTo(u::CtsUrn, count::Int64)
 collapsePassageBy(u::CtsUrn, count::Int64)
-workcontains(urn1::CtsUrn, urn2::CtsUrn), 
+workcontains(urn1::CtsUrn, urn2::CtsUrn)
 passagecontains(urn1::CtsUrn, urn2::CtsUrn)
 urncontains(urn1::CtsUrn, urn2::CtsUrn)
 fromdelimited(cex::AbstractString, delimiter::AbstractString="#")
 fromfile(filename::AbstractString, delimiter::AbstractString="#")
 fromurl(url::AbstractString, delimiter::AbstractString="#")
+nextnode(n::CitableNode, c::CitableCorpus)
+prevnode(n::CitableNode, c::CitableCorpus)
 ```
 ## Index
 ```@index
