@@ -1,7 +1,7 @@
 
 "Implementation of the CTS URN. See  [http://cite-architecture.org/ctsurn/](http://cite-architecture.org/ctsurn/)."
-struct CtsUrn
-    urn::String
+struct CtsUrn <: Urn
+    urn::AbstractString
     function CtsUrn(s)
         try
             ok = validUrn(s)

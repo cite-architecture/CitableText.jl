@@ -72,7 +72,7 @@ julia>
 addversion(CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1.1-1.10"))
 ```
 """
-function addversion(u::CtsUrn, vers::String)
+function addversion(u::CtsUrn, vers::AbstractString)
     top = components(u.urn)[URN:NAMESPACE]
     trimmed = dropversion(u)
     newparts = push!(workparts(trimmed),vers)
@@ -120,7 +120,7 @@ julia>
 addexemplar(CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1.1-1.10"))
 ```
 """
-function addexemplar(u::CtsUrn, ex::String)::CtsUrn
+function addexemplar(u::CtsUrn, ex::AbstractString)::CtsUrn
     if workdepth(u) < TEXTVERSION
         throw(ArgumentError("Cannot add exemplar to URN without version: `$(u.urn)`."))
 
