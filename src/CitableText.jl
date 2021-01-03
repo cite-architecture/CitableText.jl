@@ -15,7 +15,7 @@ export namespace, workcomponent, passagecomponent,
   collapsePassageTo, collapsePassageBy,
   workcontains, passagecontains, urncontains
     
-export CitableNode, CitableCorpus
+export CitableNode, CitableCorpus, CatalogedText
 export fromdelimited, fromfile, fromurl,
   nextnode, prevnode #,
   #retrieve
@@ -34,6 +34,7 @@ include("citableNode.jl")
 include("corpus.jl")
 include("retrieval.jl")
 include("navigation.jl")
+include("catalog.jl")
 include("corpusloading.jl")
 
 end # module
