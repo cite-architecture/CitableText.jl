@@ -35,11 +35,15 @@ end
 
 """
 $(SIGNATURES)
-Create a `CitableCorpus` from a URL to a delimited-text file with header line.
-The file should be in two columns with a CTS URN and the text content of that passage.
+Create an instance of type T from a URL to a delimited-text file with header line.
 """
-function fromurl(url::AbstractString, delimiter::AbstractString="#") #::CitableNode
-    raw = CSV.File(HTTP.get(url).body, skipto=2, delim=delimiter)  |> Array
-    corpusdata = map(row -> (CitableNode(CtsUrn(row[1]), row[2])),  raw)
-    CitableCorpus(corpusdata)
+function fromurl(::Type{T}, url::AbstractString, delimiter::AbstractString="#") where 
+    {T <: Union{CitableCorpus, CatalogedText}} 
+    if T == CitableCorpus
+        raw = CSV.File(HTTP.get(url).body, skipto=2, delim=delimiter)  |> Array
+        corpusdata = map(row -> (CitableNode(CtsUrn(row[1]), row[2])),  raw)
+        CitableCorpus(corpusdata)
+    else 
+        throw(ArgumentError("Function not implmented for type $(T)"))
+    end
 end

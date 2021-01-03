@@ -17,7 +17,7 @@ end
 
 @testset "Load a corpus from a url" begin
         url = "https://raw.githubusercontent.com/LinguaLatina/texts/master/texts/latin23/hyginus.cex"
-        c = fromurl(url, "#")
+        c = fromurl(CitableCorpus, url, "#")
         @test isa(c, CitableCorpus)
 end
 
