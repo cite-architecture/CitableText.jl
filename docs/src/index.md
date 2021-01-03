@@ -36,6 +36,8 @@ collapsePassageBy(u::CtsUrn, count::Int64)
 workcontains(urn1::CtsUrn, urn2::CtsUrn), 
 passagecontains(urn1::CtsUrn, urn2::CtsUrn)
 urncontains(urn1::CtsUrn, urn2::CtsUrn)
+fromdelimited(cex::AbstractString, delimiter::AbstractString="#")
+fromfile(filename::AbstractString, delimiter::AbstractString="#")
 ```
 ## Index
 ```@index

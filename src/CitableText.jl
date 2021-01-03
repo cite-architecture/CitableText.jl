@@ -1,10 +1,11 @@
 module CitableText
 
-using CitableBase, Documenter, DocStringExtensions
+using CitableBase, CSV, DataFrames
+using Documenter, DocStringExtensions
 
 
-export CtsUrn,
-    namespace, workcomponent, passagecomponent,
+export CtsUrn
+export namespace, workcomponent, passagecomponent,
     passagedepth, passageparts, workdepth, workparts,
     isrange, 
     rangebegin, rangeend,
@@ -13,10 +14,12 @@ export CtsUrn,
     dropversion, addversion, dropexemplar, addexemplar,
     dropsubref,
     collapsePassageTo, collapsePassageBy,
-    workcontains, passagecontains, urncontains,
-    CitableNode,
-    CitableCorpus#,
-    #fromcex, fromfile,
+    workcontains, passagecontains, urncontains
+    
+export CitableNode, CitableCorpus
+export fromfile, fromdelimited
+    
+    #,
     #nextnode, prevnode,
     #retrieve
 
@@ -34,5 +37,6 @@ include("citableNode.jl")
 include("corpus.jl")
 include("retrieval.jl")
 include("navigation.jl")
+include("corpusloading.jl")
 
 end # module
