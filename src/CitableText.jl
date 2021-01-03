@@ -35,6 +35,6 @@ include("corpus.jl")
 include("retrieval.jl")
 include("navigation.jl")
 include("catalog.jl")
-include("corpusloading.jl")
+include("delimited.jl")
 
 end # module

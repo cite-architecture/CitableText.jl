@@ -1,4 +1,4 @@
-@testset "Construct citable corpus" begin
+@testset "Manually construct a citable corpus" begin
         urn = CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1.1")
         content = "μῆνιν ἄειδε, θεά, Πηληϊάδεω Ἀχιλῆος"
         cn = CitableNode(urn,content)
@@ -7,22 +7,21 @@
 end
 
 
-
-@testset "Load corpus from file" begin
+@testset "Load a corpus from a file" begin
         f = "data/hyginus.csv"
-        c = fromfile(f, "#")
+        c = fromfile(CitableCorpus, f, "#")
         @test isa(c, CitableCorpus)
 end
 
 
 
-@testset "Load corpus from a url" begin
+@testset "Load a corpus from a url" begin
         url = "https://raw.githubusercontent.com/LinguaLatina/texts/master/texts/latin23/hyginus.cex"
         c = fromurl(url, "#")
         @test isa(c, CitableCorpus)
 end
 
-@testset "Build from delimited-text string" begin
+@testset "Build a corpus from a delimited-text string" begin
         cex = """urn:cts:latinLit:stoa1263.stoa001.hc:t.1#EXCERPTA EX HYGINI GENEALOGIIS, VOLGO FABVLAE.
 urn:cts:latinLit:stoa1263.stoa001.hc:pr.1#Ex Caligine Chaos: ex Chao et Caligine Nox Dies Erebus Aether. ex Nocte et Erebo Fatum Senectus Mors Letum Continentia Somnus Somnia Amor id est Lysimeles, Epiphron dumiles Porphyrion Epaphus Discordia Miseria Petulantia Nemesis Euphrosyne Amicitia Misericordia Styx; Parcae tres, id est Clotho Lachesis Atropos; Hesperides, Aegle Hesperie aerica.
 urn:cts:latinLit:stoa1263.stoa001.hc:pr.2#Ex Aethere et Die Terra Caelum Mare.
@@ -30,6 +29,6 @@ urn:cts:latinLit:stoa1263.stoa001.hc:pr.3#Ex Aethere et Terra Dolor Dolus Ira Lu
 urn:cts:latinLit:stoa1263.stoa001.hc:pr.4#Ex Terra et Tartaro Gigantes, Enceladus Coeus elentes mophius Astraeus Pelorus Pallas Emphytus Rhoecus ienios Agrius alemone Ephialtes Eurytus effracorydon Theomises Theodamas Otus Typhon Polyboetes menephriarus abesus colophonus Iapetus.
 urn:cts:latinLit:stoa1263.stoa001.hc:pr.5#Ex Ponto et Mari piscium genera.
 """     
-        c = fromdelimited(cex, "#")
+        c = fromdelimited(CitableCorpus, cex, "#")
         @test isa(c, CitableCorpus)
 end
