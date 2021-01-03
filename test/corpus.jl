@@ -9,8 +9,16 @@ end
 
 
 @testset "Load corpus from file" begin
-        f = "test/data/hyginus.csv"
+        f = "data/hyginus.csv"
         c = fromfile(f, "#")
+        @test isa(c, CitableCorpus)
+end
+
+
+
+@testset "Load corpus from a url" begin
+        url = "https://raw.githubusercontent.com/LinguaLatina/texts/master/texts/latin23/hyginus.cex"
+        c = fromurl(url, "#")
         @test isa(c, CitableCorpus)
 end
 

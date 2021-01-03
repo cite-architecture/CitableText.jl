@@ -3,7 +3,6 @@ module CitableText
 using CitableBase, CSV, DataFrames
 using Documenter, DocStringExtensions
 
-
 export CtsUrn
 export namespace, workcomponent, passagecomponent,
     passagedepth, passageparts, workdepth, workparts,
@@ -17,11 +16,10 @@ export namespace, workcomponent, passagecomponent,
     workcontains, passagecontains, urncontains
     
 export CitableNode, CitableCorpus
-export fromfile, fromdelimited
+export fromdelimited, fromfile, fromurl
     
-    #,
-    #nextnode, prevnode,
-    #retrieve
+  #nextnode, prevnode,
+  #retrieve
 
 
 include("constants.jl")
