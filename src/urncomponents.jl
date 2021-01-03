@@ -10,9 +10,9 @@ julia>
 namespace(CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1.1"))
 ```
 """
-function namespace(u::CtsUrn)::String
+function namespace(u::CtsUrn)
     allcomponents = components(u.urn)
-    ns::String = allcomponents[3]
+    ns = allcomponents[3]
     ns
 end
 
@@ -26,9 +26,9 @@ julia>
 workcomponent(CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1.1"))
 ```
 """
-function workcomponent(u::CtsUrn)::String
+function workcomponent(u::CtsUrn)
     allcomponents = components(u.urn)
-    work::String = allcomponents[4]
+    work = allcomponents[4]
     work
 end
 
@@ -42,8 +42,8 @@ julia>
 passagecomponent(CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1.1"))
 ```
 """
-function passagecomponent(u::CtsUrn)::String
+function passagecomponent(u::CtsUrn)
     allcomponents = components(u.urn)
-    passage::String= allcomponents[5]
+    passage = allcomponents[5]
     passage
 end

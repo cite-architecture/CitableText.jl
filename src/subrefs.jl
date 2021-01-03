@@ -66,11 +66,11 @@ julia>
 subref(1.1-1.10@μῆνιν")
 ```
 """
-function subref(s::String)::String
+function subref(s::AbstractString)
     segments = split(s,"@")
     count = size(segments,1)
     if count == 2
-        sub::String = segments[2]
+        sub = segments[2]
         sub
     elseif count > 2
         throw(ArgumentError("Invalid subreference syntax `$(s)`.  Too many `@` characters."))
@@ -80,6 +80,6 @@ function subref(s::String)::String
 end
 
 
-function dropsubref(s::String)::String
+function dropsubref(s::AbstractString)
     "TO BE IMPLEMENTED"
 end
