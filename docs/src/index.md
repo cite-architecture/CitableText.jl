@@ -36,9 +36,9 @@ collapsePassageBy(u::CtsUrn, count::Int64)
 workcontains(urn1::CtsUrn, urn2::CtsUrn)
 passagecontains(urn1::CtsUrn, urn2::CtsUrn)
 urncontains(urn1::CtsUrn, urn2::CtsUrn)
-fromdelimited(cex::AbstractString, delimiter::AbstractString="#")
-fromfile(filename::AbstractString, delimiter::AbstractString="#")
-fromurl(url::AbstractString, delimiter::AbstractString="#")
+fromdelimited(::Type{T}, cex::AbstractString, delimiter::AbstractString="#") where {T <: Union{CitableCorpus, CatalogedText}} 
+fromfile(::Type{T}, filename::AbstractString, delimiter::AbstractString="#") where {T <: Union{CitableCorpus, CatalogedText}} 
+fromurl(::Type{T}, url::AbstractString, delimiter::AbstractString="#") where {T <: Union{CitableCorpus, CatalogedText}} 
 nextnode(n::CitableNode, c::CitableCorpus)
 prevnode(n::CitableNode, c::CitableCorpus)
 ```
