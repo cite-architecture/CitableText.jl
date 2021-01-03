@@ -1,5 +1,5 @@
 # Functions for working with delimited-text data from Strings, Files
-# or URLs, to create different types of CitableText structures
+# or URLs, to create different types of CitableText structures.
 
 """
 $(SIGNATURES)
@@ -10,8 +10,12 @@ function fromdelimited(::Type{T}, src::AbstractString, delimiter::AbstractString
     lines = split(src,"\n")
     nonempty = filter(ln -> ln != "", lines)
     cols = map(l -> split(l, delimiter), nonempty)
-    citablenodes = map(col -> CitableNode(CtsUrn(col[1]), col[2]), cols)
-    CitableCorpus(citablenodes)
+    if T === CitableCorpus
+        citablenodes = map(col -> CitableNode(CtsUrn(col[1]), col[2]), cols)
+        CitableCorpus(citablenodes)
+    else
+        throw(ArgumentError("Function not implemented for type $(T)."))
+    end
 end
     
 
