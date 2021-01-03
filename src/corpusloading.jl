@@ -32,7 +32,7 @@ $(SIGNATURES)
 Create a `CitableCorpus` from a URL to a delimited-text file with header line.
 The file should be in two columns with a CTS URN and the text content of that passage.
 """
-function fromurl(url::AbstractString, delimiter::AbstractString="#")::CitableNode
+function fromurl(url::AbstractString, delimiter::AbstractString="#") #::CitableNode
     raw = CSV.File(HTTP.get(url).body, skipto=2, delim=delimiter)  |> Array
     corpusdata = map(row -> (CitableNode(CtsUrn(row[1]), row[2])),  raw)
     CitableCorpus(corpusdata)
