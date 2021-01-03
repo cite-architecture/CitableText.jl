@@ -5,20 +5,19 @@ using Documenter, DocStringExtensions
 
 export CtsUrn
 export namespace, workcomponent, passagecomponent,
-    passagedepth, passageparts, workdepth, workparts,
-    isrange, 
-    rangebegin, rangeend,
-    hassubref, subref,
-    droppassage, addpassage,
-    dropversion, addversion, dropexemplar, addexemplar,
-    dropsubref,
-    collapsePassageTo, collapsePassageBy,
-    workcontains, passagecontains, urncontains
+  passagedepth, passageparts, workdepth, workparts,
+  isrange, 
+  rangebegin, rangeend,
+  hassubref, subref,
+  droppassage, addpassage,
+  dropversion, addversion, dropexemplar, addexemplar,
+  dropsubref,
+  collapsePassageTo, collapsePassageBy,
+  workcontains, passagecontains, urncontains
     
 export CitableNode, CitableCorpus
-export fromdelimited, fromfile, fromurl
-    
-  #nextnode, prevnode,
+export fromdelimited, fromfile, fromurl,
+  nextnode, prevnode #,
   #retrieve
 
 
