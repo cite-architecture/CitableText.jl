@@ -5,3 +5,7 @@
     cataloged = catalog(cex)
     @test isa(cataloged, CatalogedText)
 end
+
+@testset "Load catalog from local file" begin
+    
+end

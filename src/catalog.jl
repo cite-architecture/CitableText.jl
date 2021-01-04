@@ -6,6 +6,8 @@ struct CatalogedText
     work
     version
     exemplar
+    online::Bool
+    lang
 end
 
 
@@ -15,7 +17,7 @@ $(SIGNATURES)
 Create a `CatalogedText` from an array of String values.
 """
 function catalog(arr)
-    if length(arr) < 6
+    if length(arr) < 8
         throw(ArgumentError("Invalid argument $(arr); array should have 6 components."))
     elseif arr[2] == ""
         throw(ArgumentError("Invalid argument $(arr); citation scheme must be included."))
@@ -32,7 +34,9 @@ function catalog(arr)
             title = arr[4]
             vers = arr[5] == "" ? nothing : arr[5]
             ex = arr[6] == "" ? nothing : arr[6]
-            CatalogedText(urn, citescheme, textgroup, title, vers, ex)
+            online = lowercase(arr[7]) in ["t", "true", "yes", "y"]
+            lang = arr[8]
+            CatalogedText(urn, citescheme, textgroup, title, vers, ex, online, lang)
 
         catch e
             throw(e)
