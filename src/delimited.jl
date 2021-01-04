@@ -30,12 +30,14 @@ Create an instance of type T from a delimited-text file with header line.
 """
 function fromfile(::Type{T}, filename::AbstractString, delimiter::AbstractString="|") where 
     {T <: loadableTypes} 
-    raw = CSV.File(filename, skipto=2, delim=delimiter)  |> Array
+    raw = CSV.File(filename, skipto=2, delim=delimiter)
     if T === CitableCorpus
-        corpusdata = map(row -> (CitableNode(CtsUrn(row[1]), row[2])),  raw)
+        arr = raw |> Array
+        corpusdata = map(row -> (CitableNode(CtsUrn(row[1]), row[2])),  arr)
         CitableCorpus(corpusdata)
     elseif T === CatalogedText
-        map(row -> catalog(row), raw)
+        raw |> DataFrame
+        #map(row -> catalog(row), raw)
     else
         throw(ArgumentError("Function not implemented for type $(T)") )
     end
@@ -48,12 +50,14 @@ Create an instance of type T from a URL to a delimited-text file with header lin
 """
 function fromurl(::Type{T}, url::AbstractString, delimiter::AbstractString="#") where 
     {T <: loadableTypes} 
-    raw = CSV.File(HTTP.get(url).body, skipto=2, delim=delimiter)  |> Array
+    raw = CSV.File(HTTP.get(url).body, skipto=2, delim=delimiter)  
     if T == CitableCorpus
+        arr = raw |> Array
         corpusdata = map(row -> (CitableNode(CtsUrn(row[1]), row[2])),  raw)
         CitableCorpus(corpusdata)
     elseif T === CatalogedText
-        map(row -> catalog(row), raw)
+        #map(row -> catalog(row), raw)
+        raw |> DataFrame
     else 
         throw(ArgumentError("Function not implmented for type $(T)"))
     end

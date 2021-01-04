@@ -13,7 +13,7 @@ urn:cts:latinLit:stoa1263.stoa001.hc:pr.5#Ex Ponto et Mari piscium genera.
     @test nextnode(c.corpus[1], c) == c.corpus[2]
     @test prevnode(c.corpus[1], c) === nothing
 
-    @test nextnode(c.corpus[6], c) == nothing
+    @test nextnode(c.corpus[6], c) === nothing
     @test nextnode(c.corpus[5], c) == c.corpus[6]
 
 end

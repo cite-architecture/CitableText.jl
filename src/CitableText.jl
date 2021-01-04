@@ -1,7 +1,7 @@
 module CitableText
 
 using CitableBase, CSV, DataFrames, HTTP
-using Documenter, DocStringExtensions
+using Documenter, DocStringExtensions, BenchmarkTools
 
 export CtsUrn
 export namespace, workcomponent, passagecomponent,

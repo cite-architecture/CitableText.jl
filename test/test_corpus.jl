@@ -6,21 +6,6 @@
         @test c.corpus[1] == cn
 end
 
-
-@testset "Load a corpus from a file" begin
-        f = "data/hyginus.csv"
-        c = fromfile(CitableCorpus, f, "#")
-        @test isa(c, CitableCorpus)
-end
-
-
-
-@testset "Load a corpus from a url" begin
-        url = "https://raw.githubusercontent.com/LinguaLatina/texts/master/texts/latin23/hyginus.cex"
-        c = fromurl(CitableCorpus, url, "#")
-        @test isa(c, CitableCorpus)
-end
-
 @testset "Build a corpus from a delimited-text string" begin
         cex = """urn:cts:latinLit:stoa1263.stoa001.hc:t.1#EXCERPTA EX HYGINI GENEALOGIIS, VOLGO FABVLAE.
 urn:cts:latinLit:stoa1263.stoa001.hc:pr.1#Ex Caligine Chaos: ex Chao et Caligine Nox Dies Erebus Aether. ex Nocte et Erebo Fatum Senectus Mors Letum Continentia Somnus Somnia Amor id est Lysimeles, Epiphron dumiles Porphyrion Epaphus Discordia Miseria Petulantia Nemesis Euphrosyne Amicitia Misericordia Styx; Parcae tres, id est Clotho Lachesis Atropos; Hesperides, Aegle Hesperie aerica.
@@ -32,3 +17,12 @@ urn:cts:latinLit:stoa1263.stoa001.hc:pr.5#Ex Ponto et Mari piscium genera.
         c = fromdelimited(CitableCorpus, cex, "#")
         @test isa(c, CitableCorpus)
 end
+
+@testset "Load a corpus from a file" begin
+        f = "data/hyginus.csv"
+        c = fromfile(CitableCorpus, f, "#")
+        @test isa(c, CitableCorpus)
+end
+
+
+
