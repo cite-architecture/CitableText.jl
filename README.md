@@ -18,7 +18,7 @@ A Julia module for working with citable texts following the OHCO2 model of an or
 
 
 
-## Working with a copus of citable passages
+## Working with a corpus of citable passages
 
 
 
@@ -28,3 +28,6 @@ A Julia module for working with citable texts following the OHCO2 model of an or
 - [x] find previous node
 
 
+## Working with a catalog of texts
+
+- [ ] compare contents of catalog with contents of a corpus
