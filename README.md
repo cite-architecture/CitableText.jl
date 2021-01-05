@@ -29,8 +29,8 @@ URN comparison
 
 Retrieval:
 
-- [ ] eaf node
-- [ ]containing node
+- [ ] leaf node
+- [ ] containing node
 - [ ] range
 
 Navigation:
