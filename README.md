@@ -27,6 +27,7 @@ URN comparison
 - [x] equality (==)
 - [x] similarity
 
+
 Retrieval:
 
 - [ ] leaf node
