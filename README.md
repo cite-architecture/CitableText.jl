@@ -21,13 +21,25 @@ A Julia module for working with citable texts following the OHCO2 model of an or
 ## Working with a corpus of citable passages
 
 
+URN comparison
 
-- [x] URN comparison: urncontains 
-- [ ] retrieve a passage (leaf node, containing node, or range)
+- [x] containment
+- [ ] equality (==)
+- [ ] similarity
+
+Retrieval:
+
+- [ ] eaf node
+- [ ]containing node
+- [ ] range
+
+Navigation:
+
 - [x] find next node
 - [x] find previous node
 
 
 ## Working with a catalog of texts
 
+- [x] load from delimited text sources
 - [ ] compare contents of catalog with contents of a corpus
