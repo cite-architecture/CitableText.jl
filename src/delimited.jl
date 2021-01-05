@@ -36,8 +36,9 @@ function fromfile(::Type{T}, filename::AbstractString, delimiter::AbstractString
         corpusdata = map(row -> (CitableNode(CtsUrn(row[1]), row[2])),  arr)
         CitableCorpus(corpusdata)
     elseif T === CatalogedText
-        raw |> DataFrame
-        #map(row -> catalog(row), raw)
+        arr = raw |> Array
+        cataloged = map(row -> catalog(row), raw)
+        map(entry -> unmarshall(entry), cataloged) |> DataFrame
     else
         throw(ArgumentError("Function not implemented for type $(T)") )
     end
