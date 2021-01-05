@@ -37,13 +37,14 @@ workcontains(urn1::CtsUrn, urn2::CtsUrn)
 passagecontains(urn1::CtsUrn, urn2::CtsUrn)
 urncontains(urn1::CtsUrn, urn2::CtsUrn)
 ==(urn1::CtsUrn, urn2::CtsUrn)
-function similar(urn1::CtsUrn, urn2::CtsUrn)
+similar(urn1::CtsUrn, urn2::CtsUrn)
 fromdelimited(::Type{T}, cex::AbstractString, delimiter::AbstractString="#") where {T <: Union{CitableCorpus, CatalogedText}} 
 fromfile(::Type{T}, filename::AbstractString, delimiter::AbstractString="#") where {T <: Union{CitableCorpus, CatalogedText}} 
 fromurl(::Type{T}, url::AbstractString, delimiter::AbstractString="#") where {T <: Union{CitableCorpus, CatalogedText}} 
 nextnode(n::CitableNode, c::CitableCorpus)
 prevnode(n::CitableNode, c::CitableCorpus)
 catalog(arr)
+to_df(arr)
 ```
 ## Index
 ```@index
