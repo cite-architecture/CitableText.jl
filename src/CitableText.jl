@@ -21,7 +21,7 @@ export fromdelimited, fromfile, fromurl,
   #retrieve
 
 export CatalogedText
-export catalog
+export catalog, to_df
 
 
 include("constants.jl")
