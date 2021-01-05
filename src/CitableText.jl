@@ -1,7 +1,7 @@
 module CitableText
 
 using CitableBase, CSV, DataFrames, HTTP
-using Documenter, DocStringExtensions
+using Documenter, DocStringExtensions, BenchmarkTools
 
 export CtsUrn
 export namespace, workcomponent, passagecomponent,
@@ -13,7 +13,8 @@ export namespace, workcomponent, passagecomponent,
   dropversion, addversion, dropexemplar, addexemplar,
   dropsubref,
   collapsePassageTo, collapsePassageBy,
-  workcontains, passagecontains, urncontains
+  workcontains, passagecontains, urncontains,
+  ==, similar
     
 export CitableNode, CitableCorpus
 export fromdelimited, fromfile, fromurl,
@@ -21,7 +22,7 @@ export fromdelimited, fromfile, fromurl,
   #retrieve
 
 export CatalogedText
-export catalog
+export catalog, to_df
 
 
 include("constants.jl")

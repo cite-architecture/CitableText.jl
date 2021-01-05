@@ -13,7 +13,16 @@
         @test passagecontains(urn1, urn1)
 
         @test urncontains(urn2, urn1)
+        @test similar(urn1, urn2)
+
         @test urncontains(urn1, urn2) == false
+        @test similar(urn2, urn1)
+
         @test urncontains(urn3, urn2)
+
+        @test similar(urn1, urn2)
+
+        urn4 = CtsUrn("urn:cts:DIFFERENT_NAMESPACE:tlg001.tlg001:1.1")
+        @test ! similar(urn1, urn4)
 
 end

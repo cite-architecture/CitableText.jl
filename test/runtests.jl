@@ -1,12 +1,15 @@
 using CitableText
+using DataFrames
 using Test
 
-include("urn_validation.jl")
-include("urn_extracts.jl")
-include("urn_manipulation.jl")
-include("urn_comparison.jl")
-include("citable_nodes.jl")
-include("corpus_navigation.jl")
-# This one is slow:
-include("corpus.jl")
-include("catalog.jl")
+include("test_urn_validation.jl")
+include("test_urn_extracts.jl")
+include("test_urn_manipulation.jl")
+include("test_urn_comparison.jl")
+include("test_citable_nodes.jl")
+include("test_corpus_navigation.jl")
+#include("test_corpus.jl")
+include("test_catalog.jl")
+
+# Only include this if you're online:
+# include("test_online.jl")
