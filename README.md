@@ -24,8 +24,8 @@ A Julia module for working with citable texts following the OHCO2 model of an or
 URN comparison
 
 - [x] containment
-- [ ] equality (==)
-- [ ] similarity
+- [x] equality (==)
+- [x] similarity
 
 Retrieval:
 

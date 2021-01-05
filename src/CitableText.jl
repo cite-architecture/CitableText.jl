@@ -13,7 +13,8 @@ export namespace, workcomponent, passagecomponent,
   dropversion, addversion, dropexemplar, addexemplar,
   dropsubref,
   collapsePassageTo, collapsePassageBy,
-  workcontains, passagecontains, urncontains
+  workcontains, passagecontains, urncontains,
+  ==, similar
     
 export CitableNode, CitableCorpus
 export fromdelimited, fromfile, fromurl,

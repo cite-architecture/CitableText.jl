@@ -49,6 +49,10 @@ function unmarshall(entry)
 end
 
 
+"""
+$(SIGNATURES)
+Create a `CatalogedText` from a `CSV.Row`.
+"""
 function catalog(csvrow::CSV.Row)
     if length(csvrow) < 8
         throw(ArgumentError("Invalid argument $(csvrow); array should have 6 components."))
