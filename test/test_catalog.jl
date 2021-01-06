@@ -24,7 +24,7 @@ end
 @testset "Convert array of CatalogedTexts to DataFrame" begin
     cex = split("urn:cts:latinLit:stoa1263.stoa001.hc:|chapter,section|Hyginus|Fabulae|Holy Cross edition||true|lat", "|")
     cataloged = [catalog(cex)]
-    df = to_df(cataloged)
+    df = cataloged_to_df(cataloged)
     @test isa(df, DataFrame)
 
 end

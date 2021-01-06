@@ -20,9 +20,10 @@ export CitableNode, CitableCorpus
 export fromdelimited, fromfile, fromurl,
   nextnode, prevnode #,
   #retrieve
+export to_df  
 
 export CatalogedText
-export catalog, to_df
+export catalog, cataloged_to_df
 
 
 include("constants.jl")
