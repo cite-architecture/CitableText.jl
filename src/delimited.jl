@@ -35,10 +35,15 @@ function fromfile(::Type{T}, filename::AbstractString, delimiter::AbstractString
         arr = raw |> Array
         corpusdata = map(row -> (CitableNode(CtsUrn(row[1]), row[2])),  arr)
         CitableCorpus(corpusdata)
+
     elseif T === CatalogedText
         arr = raw |> Array
-        cataloged = map(row -> catalog(row), raw)
-        map(entry -> unmarshall(entry), cataloged) |> DataFrame
+        #cataloged = map(row -> catalog(row), raw)
+        #map(entry -> unmarshall(entry), cataloged) |> DataFrame
+        #to_df(arr)
+
+        cataloged = map(row -> catalog(row), arr)
+        cataloged_to_df(cataloged)
     else
         throw(ArgumentError("Function not implemented for type $(T)") )
     end

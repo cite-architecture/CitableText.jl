@@ -13,9 +13,37 @@ end
 
 """
 $(SIGNATURES)
+Create a DataFrame with text catalog information from an array of raw text values.
+"""
+function raw_to_df(arr)
+    urns = map(row -> row[1], arr)
+    citations = map(row -> row[2], arr)
+    groups = map(row -> row[3], arr)
+    works = map(row -> row[4], arr)
+    versions = map(row -> row[5], arr)
+    exemplars = map(row -> row[6], arr)
+    onlines = map(row -> row[7], arr)
+    langs = map(row -> row[8], arr)
+    DataFrame(
+        urn = urns,
+        citation = citations,
+
+        group = groups,
+        work = works,        
+        version = versions,
+        exemplar = exemplars,
+
+        online = onlines,
+        lang = langs
+    )
+end
+
+
+"""
+$(SIGNATURES)
 Create a DataFrame with text catalog information from an Array of `CatalogedText`s.
 """
-function to_df(arr)
+function cataloged_to_df(arr)
     urns = map(row -> row.urn, arr)
     citations = map(row -> row.citation, arr)
     groups = map(row -> row.group, arr)
