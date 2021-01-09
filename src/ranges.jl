@@ -62,7 +62,7 @@ julia>
 rangebegin("1.1-1.10"))
 ```
 """
-function rangebegin(s::AbstractString)::String
+function rangebegin(s::AbstractString)::AbstractString
     try
         if isrange(s)
             rangeparts = split(s,"-")
@@ -87,7 +87,7 @@ julia>
 rangebegin(CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1.1-1.10"))
 ```
 """
-function rangebegin(u::CtsUrn)::String
+function rangebegin(u::CtsUrn)::AbstractString
     rangebegin(passagecomponent(u))
 end
 
@@ -103,7 +103,7 @@ julia>
 rangeend("1.1-1.10"))
 ```
 """
-function rangeend(u::CtsUrn)::String
+function rangeend(u::CtsUrn)::AbstractString
     rangeend(passagecomponent(u))
 end
 
@@ -117,7 +117,7 @@ julia>
 rangeend(CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1.1-1.10"))
 ```
 """
-function rangeend(s::AbstractString)::String
+function rangeend(s::AbstractString)::AbstractString
     try
         if isrange(s)
             rangeparts = split(s,"-")
