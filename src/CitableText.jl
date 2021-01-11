@@ -18,7 +18,8 @@ export namespace, workcomponent, passagecomponent,
     
 export CitableNode, CitableCorpus
 export fromdelimited, fromfile, fromurl,
-  nextnode, prevnode #,
+  nextnode, prevnode,
+  combine
   #retrieve
 export to_df  
 
