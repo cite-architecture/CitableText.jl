@@ -15,7 +15,6 @@ Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
 [compat]
 BenchmarkTools = "0.5"
-CSV = "0.8"
 CitableBase = "1.1"
 DataFrames = "0.22"
 DocStringExtensions = "0.8"
