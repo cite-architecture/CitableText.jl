@@ -25,4 +25,22 @@ end
 end
 
 
+@testset "Combine two copora" begin
+        f = "data/hyginus.csv"
+        c1 = fromfile(CitableCorpus, f, "#")  
+        c2 = fromfile(CitableCorpus, f, "#")  
+        @test length(c1.corpus) == 1234
+        combo = CitableText.combine(c1, c2)
+        @test length(combo.corpus) == 2468
+        @test isa(combo, CitableCorpus)
+end
 
+
+@testset "Recursively composite an array of corpora" begin
+        f = "data/hyginus.csv"
+        c = fromfile(CitableCorpus, f, "#")  
+        @test length(c.corpus) == 1234
+        combo = CitableText.composite_array([c, c, c, c])
+        @test length(combo.corpus) == 4936
+        @test isa(combo, CitableCorpus)
+end

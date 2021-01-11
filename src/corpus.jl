@@ -29,16 +29,17 @@ $(SIGNATURES)
 Create a single composite `CitableCorpus` from an
 array of source corpora by recursively adding corpora.
 """
-function combine(src_array, composite)::CitableCorpus
-    if length(src_array) == 0
-        CitableCorpus(composite)
-    else
-        trim = popfirst!(src_array) 
+function composite_array(src_array, composite = nothing)
+    if src_array === nothing || length(src_array) == 0
+        composite
+    else 
+        trim = src_array[1]
+        popfirst!(src_array) 
         if composite === nothing
-            combine(src_array, [trim])
+            composite_array(src_array, trim)
         else
             newcomposite = combine(trim, composite)
-            combine(src_array, newcomposite)
+            composite_array(src_array, newcomposite)
         end
     end
 end

@@ -19,7 +19,7 @@ export namespace, workcomponent, passagecomponent,
 export CitableNode, CitableCorpus
 export fromdelimited, fromfile, fromurl,
   nextnode, prevnode,
-  combine
+  combine, composite_array
   #retrieve
 export to_df  
 
