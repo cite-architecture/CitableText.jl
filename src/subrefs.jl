@@ -82,6 +82,8 @@ end
 """
 $(SIGNATURES)
 Remove any subreference substrings in a string.
+If `s` is a range expression, separately drop subreference
+from each of range-begin and range-end parts.
 """
 function dropsubref(s::AbstractString)
     if isrange(s)

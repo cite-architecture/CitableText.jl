@@ -45,6 +45,8 @@ nextnode(n::CitableNode, c::CitableCorpus)
 prevnode(n::CitableNode, c::CitableCorpus)
 catalog(arr)
 to_df(arr)
+combine(c1::CitableCorpus, c2::CitableCorpus)
+composite_array(src_array, composite = nothing)
 ```
 ## Index
 ```@index
