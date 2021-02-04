@@ -71,7 +71,9 @@ CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1")
 ```
 """
 function passagecontains(urn1::CtsUrn, urn2::CtsUrn)::Bool
-    if passagedepth(urn1) > passagedepth(urn2)
+    if isempty(passagecomponent(urn1))
+        true
+    elseif passagedepth(urn1) > passagedepth(urn2)
         false
     else
         sliver = passageparts(urn2)[1:passagedepth(urn1)]
