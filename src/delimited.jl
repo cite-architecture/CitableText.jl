@@ -68,3 +68,9 @@ function fromurl(::Type{T}, url::AbstractString, delimiter::AbstractString="#") 
         throw(ArgumentError("Function not implmented for type $(T)"))
     end
 end
+
+"Compose a delimited-text string for a corpus."
+function cex(c::CitableCorpus, delimiter="|")
+    txt = map(cn -> string(cn.urn.urn, delimiter, cn.text), c.corpus)
+    join(txt, "\n") * "\n"
+end
