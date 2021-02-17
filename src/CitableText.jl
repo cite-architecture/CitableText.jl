@@ -21,7 +21,7 @@ export fromdelimited, fromfile, fromurl,
   nextnode, prevnode,
   combine, composite_array
   #retrieve
-export to_df  
+export to_df, cex
 
 export CatalogedText
 export catalog, cataloged_to_df

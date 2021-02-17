@@ -44,3 +44,4 @@ end
         @test length(combo.corpus) == 4936
         @test isa(combo, CitableCorpus)
 end
+
