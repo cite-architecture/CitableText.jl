@@ -11,6 +11,19 @@ struct CatalogedText
 end
 
 
+"Number of citation levels defined for a cataloged text."
+function citationdepth(catalogedtext)
+    length(split(catalogedtext.citation,","))
+end
+
+
+"Find in a dataframe of catalog data the number of citation levels defined for a text identified by URN."
+function citationdepth(u::CtsUrn, df)
+    matched = filter(row -> row.urn == u, df)
+    citation = matched[1,:citation]
+    length(split(citation,","))
+end
+
 """
 $(SIGNATURES)
 Create a DataFrame with text catalog information from an array of raw text values.

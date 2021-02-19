@@ -24,7 +24,7 @@ export fromdelimited, fromfile, fromurl,
 export to_df, cex
 
 export CatalogedText
-export catalog, cataloged_to_df
+export catalog, cataloged_to_df, citationdepth
 
 
 include("constants.jl")
