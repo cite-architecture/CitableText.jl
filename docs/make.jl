@@ -16,3 +16,7 @@ makedocs(
         "API documentation" => "apis.md"
     ]
     )
+
+deploydocs(
+    repo = "github.com/cite-architecture/CitableText.jl.git",
+) 
