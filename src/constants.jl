@@ -6,10 +6,6 @@ const NAMESPACE = 3
 const WORK = 4
 const PASSAGE = 5
 
-
-
-
-
 # Index of parts of work hierarchy:
 const GROUP = 1
 const TEXT = 2

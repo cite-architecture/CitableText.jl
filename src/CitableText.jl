@@ -1,6 +1,6 @@
 module CitableText
 
-using CitableBase, CSV, DataFrames, HTTP
+using CitableBase
 using Documenter, DocStringExtensions, BenchmarkTools
 
 export CtsUrn
@@ -16,16 +16,15 @@ export namespace, workcomponent, passagecomponent,
   workcontains, passagecontains, urncontains,
   ==, similar
     
-export CitableNode, CitableCorpus
-export fromdelimited, fromfile, fromurl,
-  nextnode, prevnode,
-  combine, composite_array
+#export CitableNode#, CitableCorpus
+#export fromdelimited, fromfile, fromurl,
+#  nextnode, prevnode,
+#  combine, composite_array
   #retrieve
-export to_df, cex
+#export to_df, cex
 
-export CatalogedText
-export catalog, cataloged_to_df, citationdepth
-
+#export CatalogedText
+#export catalog, cataloged_to_df, citationdepth
 
 include("constants.jl")
 include("ctsUrn.jl")
@@ -36,12 +35,7 @@ include("ranges.jl")
 include("subrefs.jl")
 include("validUrn.jl")
 include("urncomparison.jl")
-include("citableNode.jl")
-include("corpus.jl")
-include("retrieval.jl")
-include("navigation.jl")
-include("catalog.jl")
-include("delimited.jl")
+
 
 
 
