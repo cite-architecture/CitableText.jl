@@ -2,10 +2,9 @@
 
 A Julia module for working with citable texts following the OHCO2 model of an ordered hierarchy of citable objects.
 
-## Plans for version 1.0
+##  Working with CTS URNs
 
-
-### Working with CTS URNs.
+CitableText.jl supports:
 
 
 - [x] adding/dropping the passage component of a CtsUrn
@@ -16,31 +15,3 @@ A Julia module for working with citable texts following the OHCO2 model of an or
 
 
 
-
-
-## Working with a corpus of citable passages
-
-
-URN comparison
-
-- [x] containment
-- [x] equality (==)
-- [x] similarity
-
-
-Retrieval:
-
-- [ ] leaf node
-- [ ] containing node
-- [ ] range
-
-Navigation:
-
-- [x] find next node
-- [x] find previous node
-
-
-## Working with a catalog of texts
-
-- [x] load from delimited text sources
-- [ ] compare contents of catalog with contents of a corpus
