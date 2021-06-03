@@ -1,9 +1,13 @@
 module CitableText
 
-using CitableBase
 using Documenter, DocStringExtensions, BenchmarkTools
 
+using CitableBase 
+import CitableBase: dropversion
+import CitableBase: addversion
+
 export CtsUrn
+export dropversion, addversion
 export namespace, workcomponent, passagecomponent,
   passagedepth, passageparts, workdepth, workparts,
   isrange, 
@@ -16,16 +20,6 @@ export namespace, workcomponent, passagecomponent,
   workcontains, passagecontains, urncontains,
   ==, similar
     
-#export CitableNode#, CitableCorpus
-#export fromdelimited, fromfile, fromurl,
-#  nextnode, prevnode,
-#  combine, composite_array
-  #retrieve
-#export to_df, cex
-
-#export CatalogedText
-#export catalog, cataloged_to_df, citationdepth
-
 include("constants.jl")
 include("ctsUrn.jl")
 include("urncomponents.jl")
@@ -35,8 +29,5 @@ include("ranges.jl")
 include("subrefs.jl")
 include("validUrn.jl")
 include("urncomparison.jl")
-
-
-
 
 end # module
