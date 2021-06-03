@@ -14,4 +14,7 @@ CitableText.jl supports:
 - [x] collapsing the passage citation hierarchy to a given depth or by a relative amount
 
 
+## Version 1.0
+
+Version 1.0 release should implement the `addversion` and `dropversion` functions of `CitableBase`.
 
