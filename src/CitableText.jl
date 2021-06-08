@@ -7,14 +7,14 @@ import CitableBase: dropversion
 import CitableBase: addversion
 
 export CtsUrn
-export dropversion, addversion
+
 export namespace, workcomponent, passagecomponent,
   passagedepth, passageparts, workdepth, workparts,
   isrange, 
   rangebegin, rangeend,
   hassubref, subref,
   droppassage, addpassage,
-  dropversion, addversion, dropexemplar, addexemplar,
+  addworkid, dropversion, addversion, dropexemplar, addexemplar,
   dropsubref,
   collapsePassageTo, collapsePassageBy,
   workcontains, passagecontains, urncontains,

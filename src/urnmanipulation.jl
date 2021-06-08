@@ -136,6 +136,20 @@ function addexemplar(u::CtsUrn, ex::AbstractString)::CtsUrn
 end
 
 
+"""Create a new CtsUrn by replacing any work part of a given
+URN's work component with a new work ID part.
+
+$(SIGNATURES)
+"""
+function addworkid(u::CtsUrn, workid::AbstractString)
+    workparts = split(workcomponent(u), ".")
+    workparts[2] = workid
+
+    components = split(u.urn, ":")
+    components[4] = join(workparts,".")
+    CtsUrn(join(components,":"))
+end
+
 
 """
 $(SIGNATURES)

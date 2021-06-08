@@ -1,5 +1,13 @@
 @testset "Modify CtsUrns" begin
 
+
+@testset "Test adding/modifying work identifer" begin
+        iliad = CtsUrn("urn:cts:greekLit:tlg0012.tlg001.hmt:") 
+        odyssey = CtsUrn("urn:cts:greekLit:tlg0012.tlg002.hmt:") 
+        @test addworkid(iliad, "tlg002") == odyssey
+        @test addworkid(odyssey, "tlg001") == iliad
+end
+
 @testset "Test add/dropping passage component" begin
         urn = CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1.1")
         @test droppassage(urn) == CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:")
