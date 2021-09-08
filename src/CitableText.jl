@@ -1,6 +1,7 @@
 module CitableText
 
-using Documenter, DocStringExtensions, BenchmarkTools
+using Documenter, DocStringExtensions
+# using BenchmarkTools
 
 using CitableBase 
 import CitableBase: dropversion
