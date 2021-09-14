@@ -1,4 +1,6 @@
 module CitableText
+import Base: show
+
 
 using Documenter, DocStringExtensions
 # using BenchmarkTools
@@ -19,7 +21,7 @@ export namespace, workcomponent, passagecomponent,
   dropsubref,
   collapsePassageTo, collapsePassageBy,
   workcontains, passagecontains, urncontains,
-  ==, similar
+  urnmatches
     
 include("constants.jl")
 include("ctsUrn.jl")

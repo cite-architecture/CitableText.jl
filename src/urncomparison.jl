@@ -1,20 +1,8 @@
-import Base.==
-import Base.similar
-
 """
 $(SIGNATURES)
-Override equality operator for type-specific test.
+Override `urnmatches` function to be true if `urn1` and `urn1` are urnmatches by URN logic.
 """
-function ==(urn1::CtsUrn, urn2::CtsUrn)
-    urn1.urn == urn2.urn
-end
-
-
-"""
-$(SIGNATURES)
-Override `similar` function to be true if `urn1` and `urn1` are similar by URN logic.
-"""
-function similar(urn1::CtsUrn, urn2::CtsUrn)
+function urnmatches(urn1::CtsUrn, urn2::CtsUrn)
     urn1.urn == urn2.urn || urncontains(urn1, urn2) || urncontains(urn2, urn1)
 end
 

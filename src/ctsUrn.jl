@@ -12,4 +12,10 @@ struct CtsUrn <: Urn
     end
 end
 
+"""Dispatch `show` for `CtsUrn` type.
 
+$(SIGNATURES)
+"""
+function show(u::CtsUrn)
+    u.urn
+end
