@@ -2,7 +2,7 @@
 
 This Julia module defines the `CtsUrn`, a URN notation for canonically citing texts.
 
-A `CtsUrn` can be instantiated from a string value.  The `show` function returns this value.
+A `CtsUrn` can be instantiated from a string value.  The generic `show` function displays this value to an `IOStream`.
 
 ```jldoctest urn
 using CitableText
@@ -11,10 +11,10 @@ show(urn)
 
 # output
 
-"urn:cts:greekLit:tlg0012.tlg001.msA:1.1"
+urn:cts:greekLit:tlg0012.tlg001.msA:1.1
 ```
 
-There are many ways to malform the string value for a `CtsUrn`.  The `CitableText` module aspires to catch all of them.
+There are many ways to malform the string value for a `CtsUrn`.  The `CitableText` module aspires to catch all of them.  (See the unit tests for numerous examples of the kinds of errors the `CitableText` module can identify.)
 
 ```jldoctest urn
 try 

@@ -35,4 +35,3 @@ passagecontains
 urncontains
 urnmatches
 ```
-show

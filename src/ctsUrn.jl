@@ -16,6 +16,6 @@ end
 
 $(SIGNATURES)
 """
-function show(u::CtsUrn)
-    u.urn
+function show(io::IO, u::CtsUrn)
+    print(io, u.urn)
 end

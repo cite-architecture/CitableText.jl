@@ -22,6 +22,7 @@ export namespace, workcomponent, passagecomponent,
   collapsePassageTo, collapsePassageBy,
   workcontains, passagecontains, urncontains,
   urnmatches
+export show  
     
 include("constants.jl")
 include("ctsUrn.jl")
