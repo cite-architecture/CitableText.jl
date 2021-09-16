@@ -1,8 +1,8 @@
 """
 $(SIGNATURES)
-Override `urnmatches` function to be true if `urn1` and `urn1` are urnmatches by URN logic.
+Override `urnsimilar` function to be true if `urn1` and `urn1` are urnsimilar by URN logic.
 """
-function urnmatches(urn1::CtsUrn, urn2::CtsUrn)
+function urnsimilar(urn1::CtsUrn, urn2::CtsUrn)
     urn1.urn == urn2.urn || urncontains(urn1, urn2) || urncontains(urn2, urn1)
 end
 
