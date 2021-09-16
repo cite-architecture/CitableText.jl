@@ -11,7 +11,7 @@ hassubref(CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1.1-1.10@μῆνιν"))
 """
 function hassubref(psg::AbstractString)::Bool
     if isrange(psg)
-        hassubref(rangebegin(psg)) || hassubref(rangeend(psg))
+        hassubref(range_begin(psg)) || hassubref(range_end(psg))
         #throw(ArgumentError("Function `hassubref` applies only to single-node URNs or passage-component Strings not to ranges like `$(psg)`."))
     else
         # Kludge to work around some kind of error when first
@@ -79,6 +79,14 @@ function subref(s::AbstractString)
     end
 end
 
+"""Create a new CtsUrn dropping any extended reference in `u`.
+
+$(SIGNATURES)
+"""
+function subref(u::CtsUrn)
+    subref(u.urn)
+end
+
 """
 $(SIGNATURES)
 Remove any subreference substrings in a string.
@@ -87,8 +95,8 @@ from each of range-begin and range-end parts.
 """
 function dropsubref(s::AbstractString)
     if isrange(s)
-        r1parts = split(rangebegin(s),"@")
-        r2parts = split(rangeend(s),"@")
+        r1parts = split(range_begin(s),"@")
+        r2parts = split(range_end(s),"@")
         r1parts[1] * "-" * r2parts[1]
     else 
         parts = split(s, "@")

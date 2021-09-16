@@ -1,8 +1,10 @@
 # CitableText
 
-This Julia module defines the `CtsUrn`, a URN notation for canonically citing texts.
+## Overview
 
-A `CtsUrn` can be instantiated from a string value.  
+CitableText defines the `CtsUrn`, a URN notation for canonically citing texts.
+
+A `CtsUrn` can be instantiated from a string value.  Note that the output of `print` is *not* a quoted string value, however: it is a `CtsUrn` object.
 
 ```jldoctest urn
 using CitableText

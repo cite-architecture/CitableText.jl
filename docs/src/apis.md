@@ -17,8 +17,8 @@ passageparts
 workdepth
 workparts
 isrange
-rangebegin
-rangeend
+range_begin
+range_end
 hassubref
 subref
 droppassage
@@ -33,5 +33,5 @@ collapsePassageBy
 workcontains
 passagecontains
 urncontains
-urnmatches
+urnsimilar
 ```

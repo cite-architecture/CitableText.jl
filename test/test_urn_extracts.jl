@@ -7,10 +7,10 @@
 end
 
 @testset "Extract range components" begin
-        @test rangebegin(CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1.1-1.10")) == "1.1"
-        @test rangebegin(CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1.1@μῆνιν-1.10")) == "1.1@μῆνιν"
-        @test rangeend(CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1.1-1.10")) == "1.10"
-        @test rangeend(CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1.1-1.10@οὐλομένην")) == "1.10@οὐλομένην"
+        @test range_begin(CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1.1-1.10")) == "1.1"
+        @test range_begin(CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1.1@μῆνιν-1.10")) == "1.1@μῆνιν"
+        @test range_end(CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1.1-1.10")) == "1.10"
+        @test range_end(CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1.1-1.10@οὐλομένην")) == "1.10@οὐλομένην"
 end
 
 @testset "Extract passage subreferences" begin

@@ -12,6 +12,15 @@ struct CtsUrn <: Urn
     end
 end
 
+"""Dispatch `print` for `CtsUrn` type.
+
+$(SIGNATURES)
+"""
+function print(io::IO, u::CtsUrn)
+    print(io, u.urn)
+end
+
+
 """Dispatch `show` for `CtsUrn` type.
 
 $(SIGNATURES)

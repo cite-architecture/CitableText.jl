@@ -16,8 +16,8 @@ using Documenter, DocStringExtensions, CitableText
 makedocs(
     sitename = "CitableText Documentation",
     pages = [
-        "Home" => "index.md",
-        "Guide" => "guide.md",
+        "Overview" => "index.md",
+        "User's guide" => "guide.md",
         "API documentation" => "apis.md"
     ]
     )
