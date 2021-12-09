@@ -12,6 +12,9 @@ struct CtsUrn <: Urn
     end
 end
 
+
+UrnComparisonTrait(Cite2Urn)  = UrnComparable()
+
 """Dispatch `print` for `CtsUrn` type.
 
 $(SIGNATURES)

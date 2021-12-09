@@ -9,8 +9,10 @@ using Documenter, DocStringExtensions
 using CitableBase 
 import CitableBase: dropversion
 import CitableBase: addversion
+import CitableBase: UrnComparisonTrait
 import CitableBase: urncontains
 import CitableBase: urnsimilar
+import CitableBase: urnequals
 
 export CtsUrn
 
@@ -26,7 +28,8 @@ export namespace, workcomponent, passagecomponent,
   dropexemplar, addexemplar,
   
   collapsePassageTo, collapsePassageBy,
-  workcontains, passagecontains, urncontains, urnsimilar
+  workcontains, passagecontains, 
+  urncontains, urnsimilar, urnequals
   
 #export print  
     
