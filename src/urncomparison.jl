@@ -22,6 +22,13 @@ function urncontains(urn1::CtsUrn, urn2::CtsUrn)::Bool
     workcontains(urn1,urn2) && passagecontains(urn1, urn2)
 end
 
+"""
+$(SIGNATURES)
+True if `urn1` equals `urn2`.
+"""
+function urnequals(urn1::CtsUrn, urn2::CtsUrn)::Bool
+    urn1.urn == urn2.urn
+end
 
 
 
