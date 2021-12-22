@@ -1,7 +1,7 @@
 ![build](https://github.com/cite-architecture/CitableText.jl/actions/workflows/Documentation.yml/badge.svg)
 
 
-# CitableText.jl
+# CitableText.jl [![version](https://juliahub.com/docs/CitableText/version.svg)](https://juliahub.com/ui/Packages/CitableText/7YE7n)
 
 A Julia module for working with citable texts following the OHCO2 model of an ordered hierarchy of citable objects.
 
