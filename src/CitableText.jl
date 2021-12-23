@@ -20,6 +20,8 @@ import CitableBase: urnsimilar
 import CitableBase: urnequals
 
 export CtsUrn
+export CitableByCtsUrn
+
 
 export namespace, workcomponent, passagecomponent,
   passagedepth, passageparts, workdepth, workparts,

@@ -3,10 +3,10 @@
     @test urncomparable(ctsurn)
 end
 
-@test "Test citable trait" begin
-    #=
+@testset "Test citable trait" begin
+  
     struct TinyText <: Citable
-        urn::ctsurn
+        urn::CtsUrn
         txt::AbstractString
     end
     CitableTrait(::Type{TinyText}) = CitableByCtsUrn()
@@ -16,5 +16,6 @@ end
     txt = "The Iliad"
     tiny = TinyText(ctsurn, txt)
     @test citable(tiny)
-   =# 
+    @test CitableTrait(typeof(tiny)) == CitableByCtsUrn()
+ 
 end
