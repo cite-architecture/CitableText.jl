@@ -7,8 +7,13 @@ using Documenter, DocStringExtensions
 # using BenchmarkTools
 
 using CitableBase 
+
+import CitableBase: CitableTrait
+
+
 import CitableBase: dropversion
 import CitableBase: addversion
+
 import CitableBase: UrnComparisonTrait
 import CitableBase: urncontains
 import CitableBase: urnsimilar
