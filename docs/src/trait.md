@@ -24,13 +24,13 @@ CitableTrait(::Type{TinyText}) = CitableByCtsUrn()
 ```
 
 
-Now when we create objects of type `TinyText`, we can use the `citableobject` function from `CitableBase` to find out if our objets of our type are citable by some type of URN.
+Now when we create objects of type `TinyText`, we can use the `citable` function from `CitableBase` to find out if our objets of our type are citable by some type of URN.
 
 ```@example trait
 ctsurn = CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:")
 txt = "The Iliad"
 tiny = TinyText(ctsurn, txt)
-if citableobject(tiny)
+if citable(tiny)
     urn(tiny)
 else
     nothing
