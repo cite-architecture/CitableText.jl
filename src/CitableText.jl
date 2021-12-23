@@ -7,14 +7,21 @@ using Documenter, DocStringExtensions
 # using BenchmarkTools
 
 using CitableBase 
+
+import CitableBase: CitableTrait
+
+
 import CitableBase: dropversion
 import CitableBase: addversion
+
 import CitableBase: UrnComparisonTrait
 import CitableBase: urncontains
 import CitableBase: urnsimilar
 import CitableBase: urnequals
 
 export CtsUrn
+export CitableByCtsUrn
+
 
 export namespace, workcomponent, passagecomponent,
   passagedepth, passageparts, workdepth, workparts,

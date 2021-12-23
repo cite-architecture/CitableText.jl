@@ -17,7 +17,10 @@ makedocs(
     sitename = "CitableText Documentation",
     pages = [
         "Overview" => "index.md",
-        "User's guide" => "guide.md",
+        "User's guide" => Any[
+            "The CtsUrn" => "guide.md",
+            "The CitableTrait" => "trait.md",
+        ],
         "API documentation" => "apis.md"
     ]
     )
