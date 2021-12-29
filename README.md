@@ -5,3 +5,5 @@
 
 
 > A Julia module for citing texts with `CtsUrn`s.
+
+[Documentation](https://cite-architecture.github.io/CitableText.jl/stable/)
