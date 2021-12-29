@@ -1,10 +1,10 @@
 # API documentation
 
-```@contents
-```
 ## Types
 ```@docs
 CtsUrn
+CitableByCtsUrn
+CtsUrnComparable
 ```
 
 ## Functions

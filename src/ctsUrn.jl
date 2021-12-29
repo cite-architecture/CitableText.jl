@@ -17,12 +17,10 @@ end
 struct CitableByCtsUrn <: CitableTrait end
 
 
-
-
 """Dispatch `show` for `CtsUrn` type.
 
 $(SIGNATURES)
 """
 function show(io::IO, u::CtsUrn)
-    print(io, "<" * u.urn * ">")
+    print(io, u.urn)
 end
