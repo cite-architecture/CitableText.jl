@@ -6,80 +6,41 @@ The `CitableText` module includes a panoply of functions for working with `CtsUr
 
 Include the `CitableBase` module to use its generic `components` and `parts` functions.
 
-```jldoctest manip
+```@example manip
 using CitableText, CitableBase
 urn = CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1.1")
 components(urn)
-
-# output
-
-5-element Vector{SubString{String}}:
- "urn"
- "cts"
- "greekLit"
- "tlg0012.tlg001.msA"
- "1.1"
 ```
 
 
-```jldoctest manip
+```@example manip
 components(urn)[4] |> parts
-
-# output
-
-3-element Vector{SubString{String}}:
- "tlg0012"
- "tlg001"
- "msA"
 ```
 
-You can also functions in CitableText to extract components by name, and work with parts of those components.
+You can also use functions in `CitableText` to extract components by name, and work with parts of those components.
 
-```jldoctest manip
+```@example manip
 namespace(urn)
-
-# output
-
-"greekLit"
 ```
 
-```jldoctest manip
+```@example manip
 workcomponent(urn)
-
-# output
-
-"tlg0012.tlg001.msA"
 ```
 
 
-```jldoctest manip
+```@example manip
 passagecomponent(urn)
-
-# output
-
-"1.1"
 ```
 
 
 ### The work component
 
-```jldoctest manip
+```@example manip
 workdepth(urn)
-
-# output
-
-3
 ```
 
-```jldoctest manip
+```@example manip
 workparts(urn)
-
-# output
-
-3-element Vector{SubString{String}}:
- "tlg0012"
- "tlg001"
- "msA"
 ```
 
 
@@ -89,43 +50,25 @@ workparts(urn)
 ### The passage component
 
 
-```jldoctest manip
+```@example manip
 passagedepth(urn)
-
-# output
-
-2
 ```
 
-```jldoctest manip
+```@example manip
 passageparts(urn)
-
-# output
-
-2-element Vector{SubString{String}}:
- "1"
- "1"
 ```
 
 ## URN manipulation
 
 Several functions take a `CtsUrn` as an argument, and create a new `CtsUrn`.
 
-```jldoctest manip
+```@example manip
 addversion(urn, "rev2")
-
-# output
-
-urn:cts:greekLit:tlg0012.tlg001.rev2:1.1
 ```
 
 
-```jldoctest manip
+```@example manip
 dropversion(urn)
-
-# output
-
-urn:cts:greekLit:tlg0012.tlg001:1.1
 ```
 
 Similar functions are `addworkid`,   `dropversion`, `addversion`,  `dropexemplar`, `addexemplar`,  `collapsePassageTo`, and `collapsePassageBy`.
@@ -133,48 +76,32 @@ Similar functions are `addworkid`,   `dropversion`, `addversion`,  `dropexemplar
 You could, for example, chain together `dropversion` and `addworkid` to turn a reference to a specific version of *Iliad* 1.1 into a generic reference to *Odyssey* 1.1.
 
 
-```jldoctest manip
+```@example manip
 # change "tlg001" (Iliad) to "tlg002" (Odyssey)
 addworkid(dropversion(urn), "tlg002") 
-
-# output
-
-urn:cts:greekLit:tlg0012.tlg002:1.1
 ```
 
 ## URN comparison
 
 In addition to comparing two `CtsUrn`s for equality with `==`, you can compare them for URN containment or URN similarity.
 
-```jldoctest manip
+```@example manip
 iliad1 =  CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1")
 urncontains(iliad1, urn)
-
-# output
-
-true
 ```
 
 Two `CtsUrn`s are *similar* if they are equal, or if either URN contains the other.
 
 
-```jldoctest manip
+```@example manip
 urnsimilar(iliad1, urn)
-
-# output
-
-true
 ```
 
 Note that this definition means the function is symmetric.
 
 
-```jldoctest manip
+```@example manip
 urnsimilar(iliad1, urn) == urnsimilar(urn, iliad1)
-
-# output
-
-true
 ```
 
 
@@ -183,31 +110,19 @@ true
 `CtsUrn`s can identify passages of text as continuous ranges of citable passages.  
 
 
-```jldoctest manip
+```@example manip
 openinglines = CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1.1-1.10")
 isrange(openinglines)
-
-# output
-
-true
 ```
 
 The `range_begin` and `range_end` functions return string values.
 
-```jldoctest manip
+```@example manip
 range_begin(openinglines)
-
-# output
-
-"1.1"
 ```
 
-```jldoctest manip
+```@example manip
 range_end(openinglines)
-
-# output
-
-"1.10"
 ```
 
 ## Extended identifiers ("subreferences")
@@ -215,30 +130,18 @@ range_end(openinglines)
 CTS URNs can include an extended identifier to point into the text content of a specific version of a passage. You can determine if a `CtsUrn` includes an extended identifier, extract the subreference, or drop it.
 
 
-```jldoctest manip
+```@example manip
 wrath = CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1.1@μῆνιν")
 hassubref(wrath)
-
-# output
-
-true
 ```
 
 
-```jldoctest manip
+```@example manip
 subref(wrath)
-
-# output
-
-"μῆνιν"
 ```
 
 
 
-```jldoctest manip
+```@example manip
 dropsubref(wrath) == urn
-
-# output
-
-true
-```
+``

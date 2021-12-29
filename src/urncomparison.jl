@@ -1,3 +1,15 @@
+"Value for URN comparison trait on `CtsUrn`DocStringExtensions"
+struct CtsUrnComparable <: UrnComparisonTrait end
+
+
+"""`CtsUrn`s are URN comparable.
+$(SIGNATURES)
+"""
+function urncomparisontrait(::Type{CtsUrn}) 
+    CtsUrnComparable()
+end
+
+
 """
 $(SIGNATURES)
 Override `urnsimilar` function to be true if `urn1` and `urn1` are urnsimilar by URN logic.
