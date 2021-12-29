@@ -1,10 +1,12 @@
 # The `CitableTrait`
 
-The `CitableBase` package defines a `CitableTrait`.  Types implementing the trait implement a function, `urn`, that identifies an object by a value that is a subtype of `Urn`.
+The `CitableBase` package defines a `CitableTrait`. For any Julia type, the value of the trait is identified by a singleton value returned by the `citabletrait` function.  By default, the value of the trait is  `NotCitable()`.   (See a fuller discussion in the [documentation for `CitableBase`](https://cite-architecture.github.io/CitableBase.jl/stable/citable/#Implementing-the-CitableTrait)).
 
-By default, the value of the trait for a subtype of `Urn` is `Citable`.  There are times, however, when it may be useful to have a more specific value for the trait. For that situation, the `CitableText` package defines the `CitableByCtsUrn` type.  Here is an example of how you can use it.
 
-Define your custom type, import `CitableTrait`, and assign it the value `CitableByCtsUrn()` for your new type.  Implement the `urn` function.
+The `CitableText` package defines a singleton-type `CitableByCtsUrn` which you use as the value for `CitableTrait` for your own types of content identified by `CtsUrn`s.  Here is a brief example.
+
+
+First define your type with a `CtsUrn`.
 
 ```@example trait
 using CitableBase, CitableText
@@ -13,36 +15,48 @@ struct TinyText <: Citable
     urn::CtsUrn
     txt::AbstractString
 end
+ctsurn = CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:")
+txt = "The Iliad"
+tiny = TinyText(ctsurn, txt)
+```
 
+Override the `citabletrait` function when its parameter is the type `TinyText`, and return the concrete value `CitableByCtsUrn()`.
+
+```@example trait
+import CitableBase: citabletrait
+function citabletrait(::Type{TinyText}) 
+    CitableByCtsUrn()
+end
+```
+
+Check the result:
+
+```@example trait
+citabletrait(typeof(tiny))
+```
+
+Now you can use the `citable` function (from `CitableBase`) to check whether individual objects of your new type are citable.
+
+```@example trait
+citable(tiny)
+```
+
+At this point, you can also implement the required functions of the `CitableTrait`, `urn` and `label`.
+
+```@example trait
 import CitableBase: urn
 function urn(tinyText::TinyText)
     tinyText.urn
 end
-
-import CitableBase: CitableTrait
-CitableTrait(::Type{TinyText}) = CitableByCtsUrn()
+function label(tinyText::TinyText)
+    string(tinyText.urn) * ": " * tinyText.txt
+end
 ```
 
-
-Now when we create objects of type `TinyText`, we can use the `citable` function from `CitableBase` to find out if our objets of our type are citable by some type of URN.
-
 ```@example trait
-ctsurn = CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:")
-txt = "The Iliad"
-tiny = TinyText(ctsurn, txt)
-if citable(tiny)
-    urn(tiny)
-else
-    nothing
-end        
+urn(tiny)
 ```
 
-But we can also more specifically check the value of the `CitableTrait`.
-
 ```@example trait
-if CitableTrait(typeof(tiny)) == CitableByCtsUrn()
-    "Citation is by CtsUrn"
-else
-    "Citation is NOT by CtsUrn"
-end    
+label(tiny)
 ```

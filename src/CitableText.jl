@@ -1,26 +1,23 @@
 module CitableText
-import Base: print
+#import Base: print
 import Base: show
 
-
 using Documenter, DocStringExtensions
-# using BenchmarkTools
+
 
 using CitableBase 
-
-import CitableBase: CitableTrait
-
 
 import CitableBase: dropversion
 import CitableBase: addversion
 
-import CitableBase: UrnComparisonTrait
+import CitableBase: urncomparisontrait
 import CitableBase: urncontains
 import CitableBase: urnsimilar
 import CitableBase: urnequals
 
 export CtsUrn
 export CitableByCtsUrn
+export CtsUrnComparable
 
 
 export namespace, workcomponent, passagecomponent,

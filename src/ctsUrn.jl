@@ -16,15 +16,7 @@ end
 """
 struct CitableByCtsUrn <: CitableTrait end
 
-UrnComparisonTrait(CtsUrn)  = UrnComparable()
 
-"""Dispatch `print` for `CtsUrn` type.
-
-$(SIGNATURES)
-"""
-function print(io::IO, u::CtsUrn)
-    print(io, u.urn)
-end
 
 
 """Dispatch `show` for `CtsUrn` type.
@@ -32,5 +24,5 @@ end
 $(SIGNATURES)
 """
 function show(io::IO, u::CtsUrn)
-    print(io, u.urn)
+    print(io, "<" * u.urn * ">")
 end

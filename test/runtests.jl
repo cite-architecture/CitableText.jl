@@ -1,6 +1,6 @@
 using CitableText
 using CitableBase
-import CitableBase: CitableTrait
+import CitableBase: citabletrait
 using Test
 
 
