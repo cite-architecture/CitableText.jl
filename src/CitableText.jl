@@ -1,9 +1,7 @@
 module CitableText
-#import Base: print
-import Base: show
-
 using Documenter, DocStringExtensions
 
+import Base: show
 
 using CitableBase 
 

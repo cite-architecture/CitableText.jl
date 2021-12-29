@@ -4,7 +4,7 @@
 
 The `CitableText` package defines the `CtsUrn`, a URN notation for canonically citing texts.
 
-A `CtsUrn` can be instantiated from a string value. When displayed or printed, the string value is formatted within pointy brackets. 
+A `CtsUrn` can be instantiated from a string value.
 
 ```@example urn
 using CitableText

@@ -144,4 +144,5 @@ subref(wrath)
 
 ```@example manip
 dropsubref(wrath) == urn
-``
+```
+
