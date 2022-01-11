@@ -5,6 +5,7 @@ import Base: show
 
 using CitableBase 
 
+import CitableBase: supportsversion
 import CitableBase: dropversion
 import CitableBase: addversion
 
@@ -13,17 +14,19 @@ import CitableBase: urncontains
 import CitableBase: urnsimilar
 import CitableBase: urnequals
 
+import CitableBase: supportssubref
+import CitableBase: dropsubref
+import CitableBase: hassubref
+import CitableBase: subref
+
 export CtsUrn
 export CitableByCtsUrn
 export CtsUrnComparable
-
 
 export namespace, workcomponent, passagecomponent,
   passagedepth, passageparts, workdepth, workparts,
   isrange, 
   range_begin, range_end,
-  hassubref, subref, dropsubref,
-  
   droppassage, addpassage,
   addworkid, 
   dropversion, addversion, 
@@ -32,8 +35,6 @@ export namespace, workcomponent, passagecomponent,
   collapsePassageTo, collapsePassageBy,
   workcontains, passagecontains, 
   urncontains, urnsimilar, urnequals
-  
-#export print  
     
 include("constants.jl")
 include("ctsUrn.jl")
