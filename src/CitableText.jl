@@ -23,7 +23,6 @@ export CtsUrn
 export CitableByCtsUrn
 export CtsUrnComparable
 
-export hassubref, subref
 export namespace, workcomponent, passagecomponent,
   passagedepth, passageparts, workdepth, workparts,
   isrange, 
@@ -36,8 +35,6 @@ export namespace, workcomponent, passagecomponent,
   collapsePassageTo, collapsePassageBy,
   workcontains, passagecontains, 
   urncontains, urnsimilar, urnequals
-  
-#export print  
     
 include("constants.jl")
 include("ctsUrn.jl")
