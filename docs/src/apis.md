@@ -16,6 +16,10 @@ passagedepth
 passageparts
 workdepth
 workparts
+groupid
+workid
+versionid
+exemplarid
 isrange
 range_begin
 range_end
