@@ -24,3 +24,17 @@ $(SIGNATURES)
 function show(io::IO, u::CtsUrn)
     print(io, u.urn)
 end
+
+"""`CtsUrn`s support version ids.
+$(SIGNATURES)
+"""
+function supportsversion(u::CtsUrn)
+    true
+end
+
+"""`CtsUrn`s support subreferences.
+$(SIGNATURES)
+"""
+function supportssubref(u::CtsUrn)
+    true
+end

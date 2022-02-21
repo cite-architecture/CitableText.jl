@@ -8,33 +8,37 @@ using CitableBase
 import CitableBase: supportsversion
 import CitableBase: dropversion
 import CitableBase: addversion
-
-import CitableBase: urncomparisontrait
-import CitableBase: urncontains
-import CitableBase: urnsimilar
-import CitableBase: urnequals
+import CitableBase: versionid
 
 import CitableBase: supportssubref
 import CitableBase: dropsubref
 import CitableBase: hassubref
 import CitableBase: subref
 
+
+import CitableBase: urncomparisontrait
+import CitableBase: urncontains
+import CitableBase: urnsimilar
+import CitableBase: urnequals
+
 export CtsUrn
 export CitableByCtsUrn
 export CtsUrnComparable
 
-export namespace, workcomponent, passagecomponent,
-  passagedepth, passageparts, workdepth, workparts,
+export namespace, 
+  workcomponent, workcontains, 
+  workdepth, workparts, groupid, workid, versionid, exemplarid,
+  addworkid,
+  dropexemplar, addexemplar,
+
+  passagecomponent, passagecontains,
+  passagedepth, passageparts, 
   isrange, 
   range_begin, range_end,
   droppassage, addpassage,
-  addworkid, 
-  dropversion, addversion, 
-  dropexemplar, addexemplar,
   
-  collapsePassageTo, collapsePassageBy,
-  workcontains, passagecontains, 
-  urncontains, urnsimilar, urnequals
+  collapsePassageTo, collapsePassageBy
+  
     
 include("constants.jl")
 include("ctsUrn.jl")
