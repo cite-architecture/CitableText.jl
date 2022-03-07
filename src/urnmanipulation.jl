@@ -166,9 +166,14 @@ function collapsePassageTo(u::CtsUrn, count::Int64)::CtsUrn
     if count > passagedepth(u)
         throw(ArgumentError("Invalid request: requested depth $(count) too deep for URN `$(u.urn)`."))
     else
-        top = components(u.urn)[URN:WORK]
-        newpassageparts = passageparts(u)[1,count]
-        newcomponents = push!(top,join(newpassageparts,"."))
+        newcomponents = components(u.urn)[URN:WORK]
+        if count == 1
+            newpassageparts = passageparts(u)[1]
+            push!(newcomponents, newpassageparts)
+        else
+            newpassageparts = passageparts(u)[1,count]
+            push!(newcomponents,join(newpassageparts,"."))
+        end
         CtsUrn(join(newcomponents,":"))
     end
 end
