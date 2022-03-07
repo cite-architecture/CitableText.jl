@@ -52,6 +52,12 @@ end
         @test collapsePassageTo(urn,1) == CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1")
         @test collapsePassageBy(CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1.1"), 0) == CtsUrn("urn:cts:greekLit:tlg0012.tlg001.msA:1.1")
         @test collapsePassageBy(CtsUrn("urn:cts:latinLit:stoa1263.stoa001.hc:8pr.title"), 1) ==  CtsUrn("urn:cts:latinLit:stoa1263.stoa001.hc:8pr")
+
+
+        u2digits = CtsUrn("urn:cts:greekLit:tlg0012.tlg001:24.1") 
+        
+        @test collapsePassageTo(u2digits, 1) |> passagecomponent == "24"
+
 end
 
 
