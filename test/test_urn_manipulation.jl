@@ -33,10 +33,10 @@ end
 
 
 @testset "Test dropping subreferences" begin
-        @test dropsubref("1.1") == "1.1"
-        @test dropsubref("1.1@X") == "1.1"
-        @test dropsubref("1.1@X-1.2") == "1.1-1.2"
-        @test dropsubref("1.1@X-1.2@Y") == "1.1-1.2"
+        @test dropsubref(CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1.1")) |> passagecomponent == "1.1"
+        @test dropsubref(CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1.1@X")) |> passagecomponent == "1.1"
+        @test dropsubref(CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1.1@X-1.2")) |> passagecomponent == "1.1-1.2"
+        @test dropsubref(CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1.1@X-1.2@Y")) |> passagecomponent == "1.1-1.2"
 
         @test dropsubref(CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1.1")) == CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1.1")
         @test dropsubref(CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1.1@μῆνιν")) == CtsUrn("urn:cts:greekLit:tlg0012.tlg001:1.1")

@@ -58,7 +58,7 @@ end
 
 """
 $(SIGNATURES)
-Extract subrerence part of a passage string.
+Extract subreference part of a passage string.
 
 # Examples
 ```julia-repl

@@ -11,10 +11,6 @@ import CitableBase: addversion
 import CitableBase: versionid
 
 import CitableBase: supportssubref
-import CitableBase: dropsubref
-import CitableBase: hassubref
-import CitableBase: subref
-
 
 import CitableBase: urncomparisontrait
 import CitableBase: urncontains
@@ -33,8 +29,6 @@ export namespace,
 
   passagecomponent, passagecontains,
   passagedepth, passageparts, 
-  isrange, 
-  range_begin, range_end,
   droppassage, addpassage,
   
   collapsePassageTo, collapsePassageBy

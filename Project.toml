@@ -1,16 +1,19 @@
 name = "CitableText"
 uuid = "41e66566-473b-49d4-85b7-da83b66615d8"
 authors = ["Neel Smith <dnsmith.neel@gmail.com>"]
-version = "0.15.2"
+version = "0.16.0"
+
 
 [deps]
 CitableBase = "d6f014bd-995c-41bd-9893-703339864534"
 DocStringExtensions = "ffbed154-4ef7-542d-bbb7-c09d3a79fcae"
 Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+TestSetExtensions = "98d24dd4-01ad-11ea-1b02-c9a08f80db04"
 
 [compat]
-CitableBase = "10.2"
+CitableBase = "10.3"
 DocStringExtensions = "0.9"
 Documenter = "0.27"
+TestSetExtensions = "2"
 julia = "1"
