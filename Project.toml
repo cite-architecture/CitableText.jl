@@ -1,7 +1,7 @@
 name = "CitableText"
 uuid = "41e66566-473b-49d4-85b7-da83b66615d8"
 authors = ["Neel Smith <dnsmith.neel@gmail.com>"]
-version = "0.16.0"
+version = "0.16.1"
 
 
 [deps]
@@ -14,6 +14,6 @@ TestSetExtensions = "98d24dd4-01ad-11ea-1b02-c9a08f80db04"
 [compat]
 CitableBase = "10.3"
 DocStringExtensions = "0.9"
-Documenter = "0.27"
+Documenter = "0.27, 1"
 TestSetExtensions = "2"
 julia = "1"
