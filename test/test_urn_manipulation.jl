@@ -58,6 +58,11 @@ end
         
         @test collapsePassageTo(u2digits, 1) |> passagecomponent == "24"
 
+
+        longer = CtsUrn("urn:cts:greekLit:tlg1799.tlg001:1.1.construction.2")
+        level2 = collapsePassageTo(longer, 2)
+        @test passagecomponent(level2) == "1.1"
+
 end
 
 
