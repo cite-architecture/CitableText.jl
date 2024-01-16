@@ -171,7 +171,7 @@ function collapsePassageTo(u::CtsUrn, count::Int64)::CtsUrn
             newpassageparts = passageparts(u)[1]
             push!(newcomponents, newpassageparts)
         else
-            newpassageparts = passageparts(u)[1,count]
+            newpassageparts = passageparts(u)[1:count]
             push!(newcomponents,join(newpassageparts,"."))
         end
         CtsUrn(join(newcomponents,":"))
